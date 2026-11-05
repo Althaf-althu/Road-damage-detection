@@ -1,0 +1,43 @@
+# Core
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+
+# Database
+sqlalchemy==2.0.30
+geoalchemy2==0.15.1
+psycopg2-binary==2.9.9
+alembic==1.13.1
+
+# Validation & Settings
+pydantic==2.7.1
+pydantic-settings==2.2.1
+
+# Authentication
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Async Tasks
+celery==5.3.6
+redis==5.0.4
+
+# HTTP Client (for OSM/Geotechnical APIs)
+httpx==0.27.0
+requests==2.31.0
+
+# Email
+aiosmtplib==3.0.1
+jinja2==3.1.4
+
+# File & Image handling
+aiofiles==23.2.1
+python-dotenv==1.0.1
+
+# Geospatial utilities
+shapely==2.0.4
+
+# LLM clients
+google-generativeai==0.7.2
+openai==1.30.1
+anthropic==0.28.0
+
