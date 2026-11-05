@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Leaflet map CSS */
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --color-red: #ef4444;
+  --color-yellow: #f59e0b;
+  --color-green: #10b981;
+}
+
+body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+/* Leaflet dark map overrides */
+.leaflet-container {
+  background: #1e293b;
+}
+
+.leaflet-control-attribution {
+  background: rgba(15, 23, 42, 0.8) !important;
+  color: #64748b !important;
+}
+
+.leaflet-control-attribution a {
+  color: #94a3b8 !important;
+}
+
