@@ -42,7 +42,7 @@ class APIKeysConfig(BaseSettings):
     SUPABASE_SERVICE_ROLE_KEY: Optional[str] = None
 
     class Config:
-        env_file = ["../api_keys.env", "../.env"]
+        env_file = ["api_keys.env", ".env", "../api_keys.env", "../.env"]
         env_file_encoding = "utf-8"
         extra = "ignore"
 
@@ -62,7 +62,7 @@ class AppConfig(BaseSettings):
     RESOLVED_GREEN_DAYS: int = 90
 
     class Config:
-        env_file = "../.env"
+        env_file = [".env", "../.env"]
         env_file_encoding = "utf-8"
         extra = "ignore"
 
