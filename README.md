@@ -1,4 +1,4 @@
-# Kerala PWD — Road Damage Detection, Geotechnical Advisory & Maintenance Prioritization System
+# Road Damage Detection, Geotechnical Advisory & Maintenance Prioritization System
 
 Production-grade, full-stack spatial decision-support system connecting citizen defect reporting directly to municipal field operations, predictive maintenance scheduling, and geotechnical road design for **Kerala Public Works Department (PWD)**.
 
