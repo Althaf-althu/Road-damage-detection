@@ -4,7 +4,7 @@ import React from "react";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { DefectHeatmap } from "@/components/map/DefectHeatmap";
-import { statusColours } from "@/config/endpoints";
+import { statusColours, mapConfig } from "@/config/endpoints";
 
 interface WarRoomMapComponentProps {
   geoJsonData: any | null;
@@ -74,11 +74,11 @@ export const WarRoomMapComponent: React.FC<WarRoomMapComponentProps> = ({
       className="w-full h-full"
       scrollWheelZoom={true}
     >
-      {/* Free OpenStreetMap Tiles with Dark Theme Filter (Zero API Key Required) */}
+      {/* Dynamic Map Tiles: CARTO Dark Matter with key or OpenStreetMap */}
       <TileLayer
-        attribution='&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        className="dark-tile-filter"
+        attribution={mapConfig.tileAttribution}
+        url={mapConfig.tileUrl}
+        className={mapConfig.hasCustomKey ? undefined : "dark-tile-filter"}
       />
 
       {geoJsonData && (
