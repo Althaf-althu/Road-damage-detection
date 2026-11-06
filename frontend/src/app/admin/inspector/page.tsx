@@ -46,7 +46,7 @@ function InspectorContent() {
 
   // Dispatch modal state
   const [showDispatchModal, setShowDispatchModal] = useState(false);
-  const [selectedDepot, setSelectedDepot] = useState("Ernakulam Central PWD Depot");
+  const [selectedDepot, setSelectedDepot] = useState("Ernakulam Central Maintenance Depot");
   const [dispatchNotes, setDispatchNotes] = useState("");
   const [dispatching, setDispatching] = useState(false);
 
@@ -383,7 +383,7 @@ function InspectorContent() {
                 onChange={(e) => setSelectedDepot(e.target.value)}
                 className="w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white focus:outline-none focus:border-sky-500"
               >
-                <option value="Ernakulam Central PWD Depot">Ernakulam Central PWD Depot</option>
+                <option value="Ernakulam Central Maintenance Depot">Ernakulam Central Maintenance Depot</option>
                 <option value="Thiruvananthapuram South Maintenance Depot">Thiruvananthapuram South Maintenance Depot</option>
                 <option value="Kozhikode North Highway Division">Kozhikode North Highway Division</option>
                 <option value="Thrissur Sub-Division Depot">Thrissur Sub-Division Depot</option>
