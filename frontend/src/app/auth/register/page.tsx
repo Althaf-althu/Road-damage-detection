@@ -23,22 +23,33 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      const response = await fetch(endpoints.auth.register, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          full_name: fullName,
-          email,
-          password,
-          phone_number: phone || null,
-        }),
-      });
+      let response: Response;
+      try {
+        response = await fetch(endpoints.auth.register, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            full_name: fullName,
+            email,
+            password,
+            phone_number: phone || null,
+          }),
+        });
+      } catch {
+        throw new Error(
+          "Unable to connect to backend server (http://localhost:8000). Please make sure the backend Docker service is running (`docker compose up -d`)."
+        );
+      }
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || "Registration failed");
+        let message = "Registration failed";
+        try {
+          const errorData = await response.json();
+          message = errorData.detail || message;
+        } catch {}
+        throw new Error(message);
       }
 
       const data: AuthResponse = await response.json();
@@ -54,6 +65,29 @@ export default function RegisterPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-900 p-4">
       <div className="w-full max-w-md rounded-2xl border border-slate-700 bg-slate-800/90 p-8 shadow-2xl backdrop-blur-md">
+        {/* Back button navigation */}
+        <div className="flex items-center justify-between mb-4">
+          <button
+            type="button"
+            onClick={() => {
+              if (typeof window !== "undefined" && window.history.length > 1) {
+                router.back();
+              } else {
+                router.push("/");
+              }
+            }}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+          >
+            ← Back
+          </button>
+          <Link
+            href="/"
+            className="text-xs text-emerald-400 hover:underline"
+          >
+            Home
+          </Link>
+        </div>
+
         <div className="mb-6 text-center">
           <div className="inline-flex items-center justify-center p-3 rounded-full bg-slate-700/60 mb-3 text-2xl">
             ✍️
