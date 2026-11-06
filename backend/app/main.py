@@ -32,11 +32,7 @@ async def lifespan(app: FastAPI):
     logger.info(f"Region: {api_keys.REGION_DISPLAY_NAME} | OSM Relation: {api_keys.REGION_OSM_RELATION_ID}")
     try:
         from app.database import Base, engine
-        import app.models.user
-        import app.models.complaint
-        import app.models.work_order
-        import app.models.road_segment
-        import app.models.maintenance_log
+        import app.models
         Base.metadata.create_all(bind=engine)
         logger.info("Database tables initialized successfully in PostgreSQL.")
     except Exception as e:
