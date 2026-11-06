@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, GeoJSON, Circle, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { mapConfig } from "@/config/endpoints";
 
 interface InspectorMapComponentProps {
   snappedCoords: [number, number];
@@ -58,11 +59,11 @@ export const InspectorMapComponent: React.FC<InspectorMapComponentProps> = ({
       >
         <ChangeView center={snappedCoords} />
 
-        {/* Free OpenStreetMap Tiles with Dark Theme Filter (Zero API Key Required) */}
+        {/* Dynamic Map Tiles: CARTO Dark Matter with key or OpenStreetMap */}
         <TileLayer
-          attribution='&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          className="dark-tile-filter"
+          attribution={mapConfig.tileAttribution}
+          url={mapConfig.tileUrl}
+          className={mapConfig.hasCustomKey ? undefined : "dark-tile-filter"}
         />
 
         {/* 30-Meter Deduplication Radius Circle */}
