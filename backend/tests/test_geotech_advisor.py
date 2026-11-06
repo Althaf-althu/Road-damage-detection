@@ -76,3 +76,4 @@ def test_geotech_heavy_highway_traffic_recommendation():
 
     assert "Polymer Modified Bitumen" in advisory["primary_recommendation"]
     assert "Flexible" in advisory["pavement_type"]
+
