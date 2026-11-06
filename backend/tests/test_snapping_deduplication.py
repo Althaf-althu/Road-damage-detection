@@ -72,3 +72,4 @@ def test_subscriber_email_merging():
     # Idempotent - duplicate email must not be duplicated
     idempotent = merge_notification_subscribers(updated, "citizen1@gmail.com")
     assert idempotent == updated
+
