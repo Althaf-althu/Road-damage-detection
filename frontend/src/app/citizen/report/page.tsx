@@ -191,7 +191,7 @@ export default function ReportPage() {
           Report Road Damage
         </h1>
         <p className="mt-1 text-sm text-slate-400">
-          Upload photo or video proof. Our spatial engine will snap the defect to the Kerala road corridor and notify PWD engineers.
+          Upload photo or video proof. Our spatial engine will snap the defect to the road corridor and notify road maintenance engineers.
         </p>
       </div>
 
@@ -252,7 +252,7 @@ export default function ReportPage() {
                 You successfully endorsed active Ticket <span className="font-mono font-bold text-emerald-400">#{upvoteSuccess}</span>.
               </p>
               <p className="text-xs text-slate-400">
-                Your email ({email}) is subscribed to closure notifications. When Kerala PWD resolves this road distress, you will receive photo proof.
+                Your email ({email}) is subscribed to closure notifications. When road maintenance teams resolve this distress, you will receive photo proof.
               </p>
               <div className="pt-2">
                 <button
