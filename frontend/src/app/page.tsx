@@ -46,7 +46,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     subtitle: "AI Geotagging · Alappuzha & Coastal Belt",
     description:
       "Capture road defects across coastal and backwater corridors with automatic client-side EXIF GPS extraction, 25m centerline snapping, and 30m PostGIS deduplication radar.",
-    image: "/images/kerala-backwaters.svg",
+    image: "/images/alappuzha-kuttanad.jpg",
     locationTag: "Alappuzha & Kuttanad Waterways",
     badge: "Public Portal",
     badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40",
@@ -66,7 +66,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     subtitle: "Real-Time Road Network Radar · Ernakulam NH 66",
     description:
       "Full state operational network with dynamic color coding: Red (Active damage), Yellow (Maintenance underway), Green (Certified repaired within 90 days), and Defect Density heatmaps.",
-    image: "/images/kerala-highway.svg",
+    image: "/images/kochi-nh66.jpg",
     locationTag: "Ernakulam — Kochi City & NH 66",
     badge: "Authority Console",
     badgeColor: "bg-amber-500/20 text-amber-300 border-amber-400/40",
@@ -86,7 +86,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     subtitle: "Copernicus DEM & SoilGrids · Wayanad Mountain Passes",
     description:
       "Autonomous civil engineering consultant delivering IRC:SP:63 Interlocking Concrete Paver Blocks (ICPB) for monsoon floodplains and IRC:58 Rigid M-40 concrete for steep mountain roads.",
-    image: "/images/kerala-ghats.svg",
+    image: "/images/wayanad-churam.jpg",
     locationTag: "Wayanad Thamarassery Churam Pass",
     badge: "AI Civil Consultant",
     badgeColor: "bg-teal-500/20 text-teal-300 border-teal-400/40",
@@ -106,7 +106,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     subtitle: "Multi-Criteria Decision Analysis · Kozhikode Bypass",
     description:
       "Interactive split-pane segment visualizer computing P = 0.40S + 0.25T + 0.20R + 0.15Z with traffic density, sensitive zones (schools/hospitals), and millimeter cavity depth.",
-    image: "/images/kerala-inspector.svg",
+    image: "/images/kozhikode-beach.jpg",
     locationTag: "Kozhikode — Calicut Beach & Mini Bypass",
     badge: "MCDA Prioritization",
     badgeColor: "bg-sky-500/20 text-sky-300 border-sky-400/40",
@@ -126,7 +126,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     subtitle: "30m Technician GPS Verification · Thiruvananthapuram",
     description:
       "Dispatch maintenance work orders to PWD sub-division depots with mandatory 30-meter on-site technician location checks and transactional Before/After citizen completion emails.",
-    image: "/images/kerala-depot.svg",
+    image: "/images/thiruvananthapuram-pwd.jpg",
     locationTag: "Thiruvananthapuram PWD Headquarters",
     badge: "Field Operations",
     badgeColor: "bg-rose-500/20 text-rose-300 border-rose-400/40",
@@ -146,7 +146,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     subtitle: "Public Accountability · Kumarakom Backwaters",
     description:
       "Input your ticket tracking code (e.g., KL-2026-XXXXX) to check real-time progress, assigned sub-division depot, and photographic evidence of post-repair restoration.",
-    image: "/images/kerala-tracking.svg",
+    image: "/images/kumarakom-kottayam.jpg",
     locationTag: "Kottayam — Kumarakom Tourism Corridor",
     badge: "Civic Tracking",
     badgeColor: "bg-amber-500/20 text-amber-300 border-amber-400/40",
