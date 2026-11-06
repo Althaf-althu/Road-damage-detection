@@ -59,7 +59,7 @@ export default function AdminLayout({
           <div className="text-4xl mb-3">🚫</div>
           <h1 className="text-xl font-bold text-white mb-2">403 — Unauthorized Access</h1>
           <p className="text-sm text-slate-300 mb-6">
-            Citizen accounts do not have permission to access the Kerala PWD Municipal Command Console.
+            Citizen accounts do not have permission to access the Road Maintenance Municipal Command Console.
           </p>
           <div className="flex justify-center gap-3">
             <Link
@@ -123,7 +123,7 @@ export default function AdminLayout({
               <span className="text-2xl">🏛️</span>
               <div>
                 <p className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight">
-                  Kerala PWD Command Center
+                  Road Maintenance Command Center
                 </p>
                 <p className="text-[10px] text-sky-400 font-semibold uppercase tracking-wider">
                   Road Infrastructure Operations Division
