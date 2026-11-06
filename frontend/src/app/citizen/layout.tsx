@@ -49,7 +49,7 @@ export default function CitizenLayout({
                 <span className="text-2xl">🌴</span>
                 <div>
                   <p className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight">
-                    Kerala PWD
+                    Road Maintenance
                   </p>
                   <p className="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">
                     Citizen Road Distress Portal
