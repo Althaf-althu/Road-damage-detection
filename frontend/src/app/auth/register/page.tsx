@@ -63,8 +63,19 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-900 p-4">
-      <div className="w-full max-w-md rounded-2xl border border-slate-700 bg-slate-800/90 p-8 shadow-2xl backdrop-blur-md">
+    <main className="relative flex min-h-screen items-center justify-center p-4">
+      {/* Scenic Wayanad Rainy Hillside Road Backdrop */}
+      <div
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/wayanad-rainy-road-backdrop.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#041e16]/30 to-black/55" />
+      </div>
+
+      <div className="relative z-10 w-full max-w-md">
+        <div className="w-full rounded-2xl border border-slate-700 bg-slate-800/90 p-8 shadow-2xl backdrop-blur-md">
         {/* Back button navigation */}
         <div className="flex items-center justify-between mb-4">
           <button
@@ -178,6 +189,7 @@ export default function RegisterPage() {
             Sign in here
           </Link>
         </div>
+      </div>
       </div>
     </main>
   );

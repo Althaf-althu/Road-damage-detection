@@ -193,10 +193,22 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-900 p-4">
-      <Suspense fallback={<div className="text-slate-400 text-sm">Loading login...</div>}>
-        <LoginForm />
-      </Suspense>
+    <main className="relative flex min-h-screen items-center justify-center p-4">
+      {/* Scenic Wayanad Rainy Hillside Road Backdrop */}
+      <div
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/wayanad-rainy-road-backdrop.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#041e16]/30 to-black/55" />
+      </div>
+
+      <div className="relative z-10 w-full max-w-md">
+        <Suspense fallback={<div className="text-slate-400 text-sm">Loading login...</div>}>
+          <LoginForm />
+        </Suspense>
+      </div>
     </main>
   );
 }
