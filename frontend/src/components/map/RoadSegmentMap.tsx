@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, GeoJSON, useMap, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { mapConfig } from "@/config/endpoints";
 
 interface RoadSegmentMapProps {
   defectCoords: [number, number]; // [lat, lng]
@@ -89,11 +90,11 @@ export const RoadSegmentMap: React.FC<RoadSegmentMapProps> = ({
         <ChangeView center={defectCoords} />
         {interactive && <MapClickHandler onSelect={onLocationSelect} />}
 
-        {/* Free OpenStreetMap Tiles with Dark Theme Filter (Zero API Key Required) */}
+        {/* Dynamic Map Tiles: CARTO Dark Matter with key or OpenStreetMap */}
         <TileLayer
-          attribution='&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          className="dark-tile-filter"
+          attribution={mapConfig.tileAttribution}
+          url={mapConfig.tileUrl}
+          className={mapConfig.hasCustomKey ? undefined : "dark-tile-filter"}
         />
 
         {/* Snapped Road Polyline Highlight */}
