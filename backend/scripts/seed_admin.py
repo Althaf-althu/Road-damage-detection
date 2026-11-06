@@ -6,9 +6,9 @@ Creates the initial admin user for the Kerala PWD authority console.
 
 Usage:
     python seed_admin.py
-    python seed_admin.py --email admin@pwd.kerala.gov.in --name "Kerala PWD Admin"
+    python seed_admin.py --email admin@roadwatch.local --name "System Administrator"
 
-Run this once after docker-compose up and alembic upgrade head.
+Run this once after docker-compose up.
 """
 
 import sys
@@ -31,8 +31,8 @@ DATABASE_URL = os.getenv(
     "postgresql://postgres:postgrespassword@localhost:5432/road_damage_db"
 )
 
-DEFAULT_ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "admin@pwd.kerala.gov.in")
-DEFAULT_ADMIN_NAME = os.getenv("ADMIN_NAME", "Kerala PWD Administrator")
+DEFAULT_ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "admin@roadwatch.local")
+DEFAULT_ADMIN_NAME = os.getenv("ADMIN_NAME", "System Administrator")
 DEFAULT_ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "ChangeMe@2026!")
 
 
