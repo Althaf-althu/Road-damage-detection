@@ -71,9 +71,9 @@ def test_mcda_composite_priority_score_tiers():
     # 2. Moderate scenario: Medium crack on State Highway
     res_moderate = calculate_priority_score(
         defect_type="fatigue_crack",
-        area_sqm=2.0,
-        depth_cm=4.0,
-        custom_adt=5000,
+        area_sqm=4.0,
+        depth_cm=10.0,
+        custom_adt=10000,
         custom_road_class="primary",
         is_sensitive_zone=False,
     )
@@ -106,3 +106,4 @@ def test_mcda_weights_sum_to_one():
     )
     # At maximal inputs, score must be exactly 100.0
     assert res["priority_score"] == 100.0
+
