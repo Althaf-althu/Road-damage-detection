@@ -30,6 +30,17 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 async def lifespan(app: FastAPI):
     logger.info(f"Starting {api_keys.REGION_AUTHORITY} Road Damage System")
     logger.info(f"Region: {api_keys.REGION_DISPLAY_NAME} | OSM Relation: {api_keys.REGION_OSM_RELATION_ID}")
+    try:
+        from app.database import Base, engine
+        import app.models.user
+        import app.models.complaint
+        import app.models.work_order
+        import app.models.road_segment
+        import app.models.maintenance_log
+        Base.metadata.create_all(bind=engine)
+        logger.info("Database tables initialized successfully in PostgreSQL.")
+    except Exception as e:
+        logger.warning(f"Database schema auto-creation note: {e}")
     yield
     logger.info("Shutting down Road Damage System")
 
@@ -50,7 +61,10 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "http://localhost",
+        "http://127.0.0.1",
     ],
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:[0-9]+)?",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
