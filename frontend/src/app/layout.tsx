@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Kerala PWD — Road Damage Detection System",
+  title: "Road Maintenance — Distress Detection & Geotechnical Advisory",
   description:
-    "Citizen-to-authority road damage reporting, AI-powered defect detection, and maintenance tracking for Kerala roads.",
+    "Citizen-to-authority road damage reporting, AI-powered defect detection, and maintenance tracking for road networks.",
 };
 
 export default function RootLayout({
