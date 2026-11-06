@@ -97,6 +97,6 @@ Refer to `BUILD_PHASES.md` in the system artifacts for full details:
 - **Phase 2**: Citizen Portal, EXIF Extraction, Snapping & Deduplication (`Completed ✅`)
 - **Phase 3**: ML Perception Pipeline (YOLOv8 & Depth Anything V2) (`Completed ✅`)
 - **Phase 4**: Admin War Room, Priority Scoring, Work Orders & Resolution Emails (`Completed ✅`)
-- **Phase 5**: Geotechnical AI Material Advisory (SoilGrids, Open-Elevation, Gemini) (`Next ⏳`)
-- **Phase 6**: Acceptance Testing, Hardening & Final Documentation
+- **Phase 5**: Geotechnical AI Material Advisory (SoilGrids, Open-Elevation, Gemini) (`Completed ✅`)
+- **Phase 6**: Acceptance Testing, Hardening & Final Documentation (`Next ⏳`)
 
