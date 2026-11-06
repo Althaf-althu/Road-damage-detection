@@ -18,6 +18,7 @@ from app.api.road_inspector import router as road_inspector_router
 from app.api.complaints import router as complaints_router
 from app.api.work_orders import router as work_orders_router
 from app.api.prioritization import router as prioritization_router
+from app.api.geotech_advisor import router as geotech_advisor_router
 
 logger = logging.getLogger(__name__)
 
@@ -65,6 +66,5 @@ app.include_router(road_inspector_router)
 app.include_router(complaints_router)
 app.include_router(work_orders_router)
 app.include_router(prioritization_router)
-# Phase 5 router:
-#   app.include_router(geotech_router)
+app.include_router(geotech_advisor_router)
 
