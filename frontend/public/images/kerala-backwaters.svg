@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="60%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="40%" stop-color="#115e59" />
+      <stop offset="100%" stop-color="#042f2e" />
+    </linearGradient>
+    <linearGradient id="boatGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#78350f" />
+      <stop offset="50%" stop-color="#b45309" />
+      <stop offset="100%" stop-color="#451a03" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="260" fill="url(#skyGrad)" />
+
+  <!-- Tropical Sun -->
+  <circle cx="560" cy="180" r="50" fill="#fef08a" opacity="0.85" filter="drop-shadow(0 0 20px #f59e0b)" />
+
+  <!-- Distant Palm Hills -->
+  <path d="M0,240 Q120,200 240,230 T480,220 T720,235 T800,240 L800,260 L0,260 Z" fill="#064e3b" opacity="0.6" />
+  <path d="M0,250 Q160,225 320,245 T640,235 T800,250 L800,260 L0,260 Z" fill="#042f2e" opacity="0.8" />
+
+  <!-- Water Surface -->
+  <rect y="260" width="800" height="190" fill="url(#waterGrad)" />
+
+  <!-- Gentle Water Ripples -->
+  <path d="M50,280 Q100,278 150,280 T250,280" stroke="#5eead4" stroke-width="1.5" opacity="0.3" fill="none" />
+  <path d="M300,310 Q400,307 500,310 T700,310" stroke="#fef08a" stroke-width="2" opacity="0.4" fill="none" />
+  <path d="M100,360 Q250,357 400,360 T700,360" stroke="#5eead4" stroke-width="1.5" opacity="0.25" fill="none" />
+
+  <!-- Traditional Kerala Houseboat (Kettuvallam) -->
+  <g transform="translate(180, 200)">
+    <!-- Hull -->
+    <path d="M40,110 C80,125 320,125 380,105 C350,135 70,135 40,110 Z" fill="url(#boatGrad)" />
+    <!-- Thatched Bamboo Canopy Roof -->
+    <path d="M90,110 Q220,40 330,110 Z" fill="#d97706" />
+    <path d="M100,108 Q220,48 320,108" stroke="#78350f" stroke-width="3" fill="none" />
+    <path d="M120,105 Q220,60 300,105" stroke="#92400e" stroke-width="2" fill="none" />
+    <!-- Houseboat Windows -->
+    <rect x="140" y="85" width="22" height="16" rx="3" fill="#fef08a" opacity="0.9" />
+    <rect x="180" y="85" width="22" height="16" rx="3" fill="#fef08a" opacity="0.9" />
+    <rect x="220" y="85" width="22" height="16" rx="3" fill="#fef08a" opacity="0.9" />
+    <rect x="260" y="85" width="22" height="16" rx="3" fill="#fef08a" opacity="0.9" />
+    <!-- Boat Reflection -->
+    <ellipse cx="210" cy="135" rx="140" ry="12" fill="#042f2e" opacity="0.6" />
+  </g>
+
+  <!-- Coconut Palm Silhouette (Foreground Left) -->
+  <g transform="translate(30, 80)">
+    <!-- Curved Trunk -->
+    <path d="M0,320 Q30,160 50,0 Q60,160 30,320 Z" fill="#022c22" />
+    <!-- Fronds -->
+    <path d="M50,0 Q-40,-40 -120,0" stroke="#064e3b" stroke-width="6" stroke-linecap="round" fill="none" />
+    <path d="M50,0 Q-30,-70 -80,-90" stroke="#047857" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M50,0 Q20,-90 60,-110" stroke="#059669" stroke-width="5.5" stroke-linecap="round" fill="none" />
+    <path d="M50,0 Q90,-80 140,-50" stroke="#047857" stroke-width="6" stroke-linecap="round" fill="none" />
+    <path d="M50,0 Q120,-30 160,20" stroke="#064e3b" stroke-width="5" stroke-linecap="round" fill="none" />
+  </g>
+</svg>

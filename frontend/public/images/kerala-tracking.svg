@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="trackBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="60%" stop-color="#0f766e" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#trackBg)" />
+
+  <!-- Tropical Water & Palm Reflections in Background -->
+  <path d="M0,280 Q200,240 400,270 T800,250 L800,450 L0,450 Z" fill="#042f2e" opacity="0.9" />
+
+  <!-- Side-by-Side Photographic Verification Split Frame -->
+  <g transform="translate(140, 60)">
+    <!-- Before Frame (Distress Active) -->
+    <rect x="0" y="0" width="240" height="260" rx="16" fill="#1e293b" stroke="#ef4444" stroke-width="2" />
+    <path d="M20,180 Q120,150 220,180 L220,240 L20,240 Z" fill="#334155" />
+    <!-- Pothole in Before Frame -->
+    <ellipse cx="120" cy="190" rx="40" ry="15" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" />
+    <!-- Before Label Badge -->
+    <rect x="15" y="15" width="90" height="26" rx="6" fill="#450a0a" stroke="#f87171" stroke-width="1" />
+    <text x="32" y="32" fill="#fca5a5" font-family="sans-serif" font-size="11" font-weight="bold">BEFORE</text>
+
+    <!-- Arrow Connection Indicator -->
+    <g transform="translate(248, 115)">
+      <circle cx="12" cy="12" r="20" fill="#065f46" stroke="#34d399" stroke-width="2" />
+      <path d="M6,12 L16,12 M12,7 L17,12 L12,17" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- After Frame (Paving Restored) -->
+    <rect x="280" y="0" width="240" height="260" rx="16" fill="#1e293b" stroke="#10b981" stroke-width="2.5" />
+    <path d="M300,180 Q400,150 500,180 L500,240 L300,240 Z" fill="#047857" />
+    <!-- Clean Interlocking Pavers Pattern in After Frame -->
+    <g stroke="#34d399" stroke-width="1.2" opacity="0.7">
+      <line x1="340" y1="180" x2="340" y2="240" />
+      <line x1="380" y1="180" x2="380" y2="240" />
+      <line x1="420" y1="180" x2="420" y2="240" />
+      <line x1="460" y1="180" x2="460" y2="240" />
+    </g>
+    <!-- After Label Badge -->
+    <rect x="295" y="15" width="80" height="26" rx="6" fill="#064e3b" stroke="#34d399" stroke-width="1" />
+    <text x="312" y="32" fill="#6ee7b7" font-family="sans-serif" font-size="11" font-weight="bold">AFTER</text>
+
+    <!-- Verification Checkmark Certified Stamp -->
+    <g transform="translate(450, 20)">
+      <circle cx="16" cy="16" r="22" fill="#059669" stroke="#a7f3d0" stroke-width="2" />
+      <path d="M8,16 L14,22 L24,10" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    </g>
+  </g>
+
+  <!-- Ticket ID Banner at Bottom -->
+  <g transform="translate(230, 350)">
+    <rect width="340" height="42" rx="10" fill="#042f24" stroke="#10b981" stroke-width="1.5" />
+    <text x="32" y="26" fill="#a7f3d0" font-family="sans-serif" font-size="13" font-weight="bold">
+      TICKET #KL-2026-04821 • RESTORATION CERTIFIED
+    </text>
+  </g>
+</svg>

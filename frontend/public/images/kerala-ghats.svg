@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ghatSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#042f2e" />
+      <stop offset="50%" stop-color="#115e59" />
+      <stop offset="100%" stop-color="#2dd4bf" />
+    </linearGradient>
+    <linearGradient id="mistGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ccfbf1" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#ccfbf1" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="450" fill="url(#ghatSky)" />
+
+  <!-- Mountain Peaks (Western Ghats Tier 1) -->
+  <polygon points="120,40 280,260 -40,260" fill="#042f2e" opacity="0.6" />
+  <polygon points="420,70 600,280 240,280" fill="#022c22" opacity="0.8" />
+  <polygon points="680,50 860,260 500,260" fill="#064e3b" opacity="0.7" />
+
+  <!-- Tea Garden Contour Terraces -->
+  <path d="M0,240 Q200,210 400,250 T800,230 L800,450 L0,450 Z" fill="#047857" />
+  <path d="M0,280 Q250,260 500,290 T800,270 L800,450 L0,450 Z" fill="#065f46" />
+  <path d="M0,330 Q200,310 450,340 T800,320 L800,450 L0,450 Z" fill="#022c22" />
+
+  <!-- Winding Ghat Mountain Road (Hairpin Curves) -->
+  <path d="M800,280 C600,270 480,310 520,340 C560,370 280,360 220,390 C160,420 50,430 0,440" 
+        stroke="#e2e8f0" stroke-width="26" fill="none" stroke-linecap="round" />
+  <path d="M800,280 C600,270 480,310 520,340 C560,370 280,360 220,390 C160,420 50,430 0,440" 
+        stroke="#475569" stroke-width="20" fill="none" stroke-linecap="round" />
+  <path d="M800,280 C600,270 480,310 520,340 C560,370 280,360 220,390 C160,420 50,430 0,440" 
+        stroke="#fbbf24" stroke-width="2" stroke-dasharray="8, 6" fill="none" />
+
+  <!-- Mountain Monsoon Mist Band -->
+  <rect x="0" y="160" width="800" height="70" fill="url(#mistGrad)" />
+  <rect x="0" y="220" width="800" height="40" fill="url(#mistGrad)" opacity="0.6" />
+
+  <!-- Geotech Slope Indicator HUD -->
+  <g transform="translate(620, 40)">
+    <rect width="150" height="55" rx="10" fill="#022c22" opacity="0.9" stroke="#2dd4bf" stroke-width="1.5" />
+    <text x="14" y="24" fill="#2dd4bf" font-family="sans-serif" font-size="11" font-weight="bold">SLOPE: 7.4% (STEEP)</text>
+    <text x="14" y="42" fill="#fef08a" font-family="sans-serif" font-size="11">IRC:58 M-40 RIGID</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hwSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="60%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="450" fill="url(#hwSky)" />
+
+  <!-- Tropical Hills -->
+  <path d="M0,220 Q200,160 400,200 T800,180 L800,450 L0,450 Z" fill="#064e3b" opacity="0.7" />
+  <path d="M0,250 Q250,200 500,230 T800,210 L800,450 L0,450 Z" fill="#042f24" opacity="0.9" />
+
+  <!-- Highway Ribbon (Kerala NH 66 Elevated Perspective) -->
+  <path d="M370,220 L430,220 L750,450 L50,450 Z" fill="url(#roadGrad)" />
+
+  <!-- Yellow Highway Center Line (Dashed) -->
+  <path d="M400,220 L400,450" stroke="#f59e0b" stroke-width="6" stroke-dasharray="24, 18" />
+
+  <!-- Road Shoulders & Edge Restraints -->
+  <path d="M365,220 L45,450" stroke="#10b981" stroke-width="4" fill="none" opacity="0.8" />
+  <path d="M435,220 L755,450" stroke="#10b981" stroke-width="4" fill="none" opacity="0.8" />
+
+  <!-- Digital Radar Scanning Overlay (Municipal Command Theme) -->
+  <circle cx="400" cy="280" r="120" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="8, 6" fill="none" opacity="0.4" />
+  <circle cx="400" cy="280" r="60" stroke="#38bdf8" stroke-width="2" fill="none" opacity="0.6" />
+  <circle cx="400" cy="280" r="8" fill="#ef4444" />
+  <circle cx="400" cy="280" r="22" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.7" />
+
+  <!-- Palm Tree Canopy Silhouettes Along Highway -->
+  <g transform="translate(680, 240)">
+    <path d="M0,210 Q-20,100 -10,0 Q0,100 10,210 Z" fill="#022c22" />
+    <path d="M-10,0 Q-60,-40 -90,0" stroke="#047857" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M-10,0 Q0,-60 20,-80" stroke="#059669" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M-10,0 Q60,-40 90,10" stroke="#047857" stroke-width="5" stroke-linecap="round" fill="none" />
+  </g>
+  <g transform="translate(80, 260)">
+    <path d="M0,190 Q20,90 10,0 Q0,90 -10,190 Z" fill="#022c22" />
+    <path d="M10,0 Q-50,-30 -80,10" stroke="#047857" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M10,0 Q0,-50 30,-70" stroke="#059669" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M10,0 Q50,-30 80,0" stroke="#047857" stroke-width="5" stroke-linecap="round" fill="none" />
+  </g>
+</svg>
