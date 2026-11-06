@@ -64,7 +64,7 @@ def test_rbac_citizen_forbidden_from_admin():
     with pytest.raises(HTTPException) as exc_info:
         require_admin(current_user=citizen)
     assert exc_info.value.status_code == 403
-    assert "Insufficient permissions" in exc_info.value.detail
+    assert "Admin privileges required" in exc_info.value.detail
 
 
 def test_rbac_admin_allowed_on_admin():
@@ -79,3 +79,4 @@ def test_rbac_citizen_allowed_on_citizen():
     citizen = MockUser(id="citizen-002", role="citizen")
     result = require_citizen(current_user=citizen)
     assert result.role == "citizen"
+
