@@ -28,7 +28,7 @@ export default function CitizenLayout({
           backgroundImage: "url('/images/wayanad-rainy-road-backdrop.jpg')",
         }}
       >
-        <div className="absolute inset-0 bg-[#091e17]/92 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#041e16]/30 to-black/55" />
       </div>
 
       <div className="relative z-10 flex min-h-screen flex-col">
