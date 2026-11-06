@@ -71,7 +71,7 @@ export default function CitizenLayout({
             <span className="h-2 w-2 rounded-full bg-emerald-500"></span> 🟢 Verified Resolved
           </span>
         </div>
-        <p>Government of Kerala · Public Works Department (Roads Division) · IRC Compliance Engine</p>
+        <p>Public Works Road Maintenance · Safe Corridors System · IRC Compliance Engine</p>
       </footer>
     </div>
   );
