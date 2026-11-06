@@ -26,6 +26,12 @@ export default function CitizenLayout({
           {/* Navigation Links */}
           <nav className="flex items-center gap-2 sm:gap-4 text-xs font-semibold">
             <Link
+              href="/"
+              className="px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all flex items-center gap-1"
+            >
+              ← Home
+            </Link>
+            <Link
               href="/citizen/report"
               className="px-3 py-1.5 rounded-lg bg-emerald-600/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-600 hover:text-white transition-all"
             >
