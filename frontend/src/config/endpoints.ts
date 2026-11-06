@@ -38,6 +38,7 @@ export const endpoints = {
   // Geotech Advisory (Phase 5)
   geotech: {
     advise: `${API_BASE}/api/v1/geotech/advise`,
+    candidateCorridors: `${API_BASE}/api/v1/geotech/candidate-corridors`,
   },
 
   // Static uploads
