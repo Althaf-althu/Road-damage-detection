@@ -80,7 +80,7 @@ def calculate_priority_score(
     defect_type: Optional[str],
     area_sqm: float,
     depth_cm: float,
-    road_segment: Optional[RoadSegment] = None,
+    road_segment: Optional["RoadSegment"] = None,
     custom_adt: Optional[int] = None,
     custom_road_class: Optional[str] = None,
     is_sensitive_zone: Optional[bool] = None,
