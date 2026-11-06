@@ -481,7 +481,7 @@ export default function GeotechPage() {
                     <Sparkles className="h-3.5 w-3.5" />
                   </span>
                   <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
-                    Kerala PWD Engineering AI Advisory
+                    Road Maintenance Engineering AI Advisory
                   </span>
                 </div>
                 <span className="rounded-lg bg-sky-500/20 px-2.5 py-1 text-xs font-semibold text-sky-300 border border-sky-500/30">
