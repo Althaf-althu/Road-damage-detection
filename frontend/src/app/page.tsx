@@ -227,8 +227,20 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#071612] text-slate-100 font-sans selection:bg-emerald-600 selection:text-white">
-      {/* 1. Header Ribbon */}
+    <div className="relative min-h-screen text-slate-100 font-sans selection:bg-emerald-600 selection:text-white">
+      {/* 0. Scenic Wayanad Rainy Hillside Road Backdrop */}
+      <div
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/wayanad-rainy-road-backdrop.jpg')",
+        }}
+      >
+        {/* Subtle dark green vignette gradient overlay to ensure text remains crisp and readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#031913]/90 via-[#05241b]/88 to-[#02120e]/95 backdrop-blur-[1px]" />
+      </div>
+
+      <div className="relative z-10">
+        {/* 1. Header Ribbon */}
       <div className="bg-gradient-to-r from-[#042f24] via-[#064e3b] to-[#042f24] border-b border-amber-500/40 px-4 py-2 text-xs">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
@@ -844,6 +856,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
