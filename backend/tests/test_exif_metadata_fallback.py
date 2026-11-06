@@ -85,3 +85,4 @@ def test_out_of_bounds_coordinates_rejected():
             fallback_lat=None,
             fallback_lon=None,
         )
+
