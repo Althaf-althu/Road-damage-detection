@@ -81,7 +81,7 @@ def build_resolution_html(
     </div>
     <div class="footer">
       <p>Thank you for contributing to safer Kerala road infrastructure.</p>
-      <p style="margin: 4px 0 0;">Government of Kerala · Public Works Department · IRC:SP:63 Standards</p>
+      <p style="margin: 4px 0 0;">Public Works Road Maintenance · Safe Corridors Initiative · IRC:SP:63 Standards</p>
     </div>
   </div>
 </body>
