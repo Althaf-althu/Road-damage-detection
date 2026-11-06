@@ -9,7 +9,7 @@ Verifies:
 
 import pytest
 from app.api.work_orders import haversine_distance_m
-from app.services.mailer import build_resolution_html, send_resolution_notification
+from app.services.mailer import build_resolution_html, send_resolution_email
 
 
 def test_technician_gps_proximity_verification():
@@ -56,7 +56,7 @@ def test_resolution_html_email_generation():
 
 def test_mailer_simulated_dispatch():
     """Mailer must dispatch successfully in test/simulation mode without credentials crashing."""
-    success = send_resolution_notification(
+    success = send_resolution_email(
         recipient_email="citizen.reporter@gmail.com",
         ticket_id="KL-2026-TEST1234",
         road_name="NH 66 Bypass",
@@ -66,3 +66,4 @@ def test_mailer_simulated_dispatch():
         after_image="http://localhost:8000/uploads/after.jpg",
     )
     assert success is True
+
