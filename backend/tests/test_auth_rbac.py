@@ -41,13 +41,13 @@ def test_password_hashing():
 
 
 def test_token_creation_and_decoding():
-    user_payload = {"sub": "user-uuid-123", "role": "admin", "email": "engineer@pwd.kerala.gov.in"}
+    user_payload = {"sub": "user-uuid-123", "role": "admin", "email": "engineer@roadwatch.local"}
     token = create_access_token(user_payload, expires_delta=timedelta(minutes=15))
     decoded = decode_token(token)
 
     assert decoded["sub"] == "user-uuid-123"
     assert decoded["role"] == "admin"
-    assert decoded["email"] == "engineer@pwd.kerala.gov.in"
+    assert decoded["email"] == "engineer@roadwatch.local"
     assert "exp" in decoded
 
 
