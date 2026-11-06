@@ -98,5 +98,17 @@ Refer to `BUILD_PHASES.md` in the system artifacts for full details:
 - **Phase 3**: ML Perception Pipeline (YOLOv8 & Depth Anything V2) (`Completed ✅`)
 - **Phase 4**: Admin War Room, Priority Scoring, Work Orders & Resolution Emails (`Completed ✅`)
 - **Phase 5**: Geotechnical AI Material Advisory (SoilGrids, Open-Elevation, Gemini) (`Completed ✅`)
-- **Phase 6**: Acceptance Testing, Hardening & Final Documentation (`Next ⏳`)
+- **Phase 6**: Acceptance Testing, Hardening & Final Documentation (`Completed ✅`)
+
+---
+
+## 🧪 Acceptance Test Matrix Verification
+
+The test suite in `backend/tests/` verifies all 6 core criteria established in Section 10 of the system master blueprint:
+1. **Role-Based Routing Isolation (`test_auth_rbac.py`)**: Unauthenticated `401 Unauthorized`, Citizen `403 Forbidden` on administrative routes.
+2. **Metadata Extraction & Fallback (`test_exif_metadata_fallback.py`)**: Automatic EXIF GPS parsing with bounding-box validation and browser pin drop fallback.
+3. **Road Snapping Precision (`test_snapping_deduplication.py`)**: High-fidelity road corridor projection within 25m threshold.
+4. **Spatial Deduplication Radar (`test_snapping_deduplication.py`)**: 30-meter PostGIS radius deduplication and subscriber email merging.
+5. **Geotechnical Material Advisory (`test_geotech_advisor.py`)**: Automatic synthesis of IRC:SP:63 Interlocking Concrete Paver Blocks on flat clay floodplains and IRC:58 Rigid M-40 concrete on steep gradients.
+6. **Closed-Loop Resolution & Verification (`test_work_orders_resolution.py`)**: Field technician 30m GPS proximity check and automated Before/After citizen completion notifications.
 
