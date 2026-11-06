@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'standalone',
   images: {
-    domains: ['localhost', 'res.cloudinary.com'],
+    domains: ['localhost', 'res.cloudinary.com', 'images.unsplash.com'],
   },
   // Allow leaflet CSS to load correctly
   transpilePackages: ['leaflet', 'react-leaflet'],
