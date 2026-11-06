@@ -225,9 +225,20 @@ function InspectorContent() {
                     )}
                   </div>
                   <h2 className="text-lg font-bold text-white mt-1.5">{selected.road_name}</h2>
-                  <p className="text-xs text-slate-400">
-                    Location: {formatCoordinates(selected.snapped_lat, selected.snapped_lon)}
-                  </p>
+                  <div className="flex flex-wrap items-center gap-2 mt-1">
+                    <p className="text-xs text-slate-400">
+                      Location: {formatCoordinates(selected.snapped_lat, selected.snapped_lon)}
+                    </p>
+                    <a
+                      href={`https://www.google.com/maps?q=${selected.snapped_lat},${selected.snapped_lon}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-sky-400 hover:text-sky-300 bg-sky-950/60 border border-sky-800/60 px-2 py-0.5 rounded transition"
+                      title="Open coordinates in Google Maps"
+                    >
+                      🗺️ Google Maps ↗
+                    </a>
+                  </div>
                 </div>
 
                 <div className="text-right">

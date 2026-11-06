@@ -353,9 +353,20 @@ export default function ReportPage() {
                   </p>
                 </div>
                 {hasValidLocation && (
-                  <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/30">
-                    {formatCoordinates(coords[0], coords[1])}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/30">
+                      {formatCoordinates(coords[0], coords[1])}
+                    </span>
+                    <a
+                      href={`https://www.google.com/maps?q=${coords[0]},${coords[1]}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-sky-400 hover:text-sky-300 bg-sky-950/60 border border-sky-800/60 px-2.5 py-1 rounded-lg transition-colors shadow-sm"
+                      title="View pinned location on Google Maps"
+                    >
+                      🗺️ Google Maps ↗
+                    </a>
+                  </div>
                 )}
               </div>
 

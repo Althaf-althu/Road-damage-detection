@@ -196,7 +196,20 @@ export default function WorkOrdersPage() {
                       </td>
                       <td className="px-6 py-4">
                         <p className="font-bold text-white truncate max-w-xs">{wo.road_name}</p>
-                        <span className="text-[10px] text-slate-400 uppercase">{wo.road_class}</span>
+                        <div className="flex items-center gap-2 mt-0.5">
+                          <span className="text-[10px] text-slate-400 uppercase">{wo.road_class}</span>
+                          {wo.defect_lat && wo.defect_lon && (
+                            <a
+                              href={`https://www.google.com/maps?q=${wo.defect_lat},${wo.defect_lon}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[10px] font-bold text-sky-400 hover:text-sky-300 hover:underline"
+                              title="Open pinned location in Google Maps"
+                            >
+                              · Google Maps ↗
+                            </a>
+                          )}
+                        </div>
                       </td>
                       <td className="px-6 py-4 text-slate-300">
                         {wo.assigned_to_depot || "Central Operations"}
