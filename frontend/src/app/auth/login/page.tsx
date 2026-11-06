@@ -97,7 +97,7 @@ function LoginForm() {
           {defaultRole === "admin" ? "🏛️" : "👷"}
         </div>
         <h1 className="text-2xl font-bold text-white">
-          {defaultRole === "admin" ? "Kerala PWD Authority Login" : "Citizen Sign In"}
+          {defaultRole === "admin" ? "Road Maintenance Authority Login" : "Citizen Sign In"}
         </h1>
         <p className="text-xs text-slate-400 mt-1">
           {defaultRole === "admin"
@@ -164,7 +164,7 @@ function LoginForm() {
               </Link>
             </p>
             <p>
-              PWD Official?{" "}
+              Authority Staff?{" "}
               <Link href="/auth/login?role=admin" className="text-sky-400 hover:underline">
                 Authority login
               </Link>
