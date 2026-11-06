@@ -50,7 +50,7 @@ Retrieve authenticated user profile.
   ```json
   {
     "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
-    "email": "admin@pwd.kerala.gov.in",
+    "email": "admin@roadwatch.local",
     "full_name": "Kerala PWD Administrator",
     "phone_number": null,
     "role": "admin"

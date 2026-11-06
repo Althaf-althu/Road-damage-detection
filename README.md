@@ -61,7 +61,7 @@ Create the administrator credentials for Kerala PWD console:
 ```bash
 docker exec -it road_damage_backend python scripts/seed_admin.py
 ```
-*Default login: `admin@pwd.kerala.gov.in` / `ChangeMe@2026!`*
+*Default login: `admin@roadwatch.local` / `ChangeMe@2026!`*
 
 ### 6. Import Kerala Road Network from OpenStreetMap
 Fetch and load the entire road network for Kerala via Overpass API:
