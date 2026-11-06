@@ -45,17 +45,24 @@ export const endpoints = {
   uploads: (path: string) => `${API_BASE}/uploads/${path}`,
 };
 
-// Map tile config — OpenStreetMap (100% Free & Open-Source, zero API key required)
-// Mapbox used only if NEXT_PUBLIC_MAPBOX_TOKEN is explicitly set
+// Map tile config — supports CARTO Basemaps API key, Mapbox token, or OpenStreetMap fallback
+const cartoKey = process.env.NEXT_PUBLIC_CARTO_API_KEY;
+const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+
 export const mapConfig = {
   defaultCenter: [10.8505, 76.2711] as [number, number], // Kerala center
   defaultZoom: 8,
-  tileUrl: process.env.NEXT_PUBLIC_MAPBOX_TOKEN
-    ? `https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`
+  tileUrl: mapboxToken
+    ? `https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`
+    : cartoKey
+    ? `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key=${cartoKey}`
     : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  tileAttribution: process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+  tileAttribution: mapboxToken
     ? '© <a href="https://mapbox.com">Mapbox</a>'
+    : cartoKey
+    ? '© <a href="https://carto.com">CARTO</a> © <a href="https://openstreetmap.org">OSM</a>'
     : '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  hasCustomKey: Boolean(cartoKey || mapboxToken),
 };
 
 // Status → colour mapping (matches backend segment-status-map response)
