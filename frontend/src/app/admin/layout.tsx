@@ -20,7 +20,7 @@ export default function AdminLayout({
   useEffect(() => {
     const token = Cookies.get("kerala_pwd_token");
     if (!token) {
-      router.push("/auth/login?role=admin");
+      router.replace("/auth/login?role=admin");
       return;
     }
 
@@ -43,13 +43,13 @@ export default function AdminLayout({
       })
       .catch(() => {
         Cookies.remove("kerala_pwd_token");
-        router.push("/auth/login?role=admin");
+        router.replace("/auth/login?role=admin");
       });
   }, [router]);
 
   const handleLogout = () => {
     Cookies.remove("kerala_pwd_token");
-    router.push("/auth/login?role=admin");
+    router.replace("/auth/login?role=admin");
   };
 
   if (authorized === false) {
