@@ -17,6 +17,8 @@ interface WorkOrder {
   original_media_url: string;
   post_repair_media_url?: string;
   location_verified?: string;
+  defect_lat?: number;
+  defect_lon?: number;
 }
 
 export default function WorkOrdersPage() {
