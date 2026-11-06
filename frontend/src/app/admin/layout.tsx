@@ -99,8 +99,19 @@ export default function AdminLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col">
-      {/* Top Operations Header */}
+    <div className="relative min-h-screen text-slate-100 flex flex-col selection:bg-sky-600 selection:text-white">
+      {/* 0. Scenic Wayanad Rainy Hillside Road Backdrop */}
+      <div
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/wayanad-rainy-road-backdrop.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-[#041e16]/35 to-black/60" />
+      </div>
+
+      <div className="relative z-10 flex min-h-screen flex-col">
+        {/* Top Operations Header */}
       <header className="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -191,6 +202,7 @@ export default function AdminLayout({
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {children}
       </main>
+      </div>
     </div>
   );
 }
