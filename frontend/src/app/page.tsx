@@ -235,8 +235,8 @@ export default function Home() {
           backgroundImage: "url('/images/wayanad-rainy-road-backdrop.jpg')",
         }}
       >
-        {/* Subtle dark green vignette gradient overlay to ensure text remains crisp and readable */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#031913]/90 via-[#05241b]/88 to-[#02120e]/95 backdrop-blur-[1px]" />
+        {/* Reduced dark green tint so the scenic Wayanad rainy road is clearly visible and vibrant */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#041e16]/30 to-black/55" />
       </div>
 
       <div className="relative z-10">
@@ -395,7 +395,7 @@ export default function Home() {
       </section>
 
       {/* 4. Kerala Geography 3-Zone Telemetry Bar (Highlands, Midlands, Coastlands) */}
-      <section className="border-y border-emerald-950 bg-[#051a14] py-8 px-4">
+      <section className="border-y border-emerald-950/60 bg-[#051a14]/60 backdrop-blur-md py-8 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Highlands */}
           <div className="flex items-center gap-4 rounded-2xl border border-emerald-900/60 bg-[#07221a]/70 p-4">
@@ -557,7 +557,7 @@ export default function Home() {
       </section>
 
       {/* 6. Kerala District-by-District Road Telemetry Radar (14 Districts) */}
-      <section id="districts" className="border-t border-emerald-950 bg-[#051a14] py-16 px-4 sm:px-6 lg:px-8">
+      <section id="districts" className="border-t border-emerald-950/60 bg-[#051a14]/60 backdrop-blur-md py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-1">
@@ -819,7 +819,7 @@ export default function Home() {
       </section>
 
       {/* 10. Platform Footer */}
-      <footer className="border-t border-emerald-950 bg-[#041611] px-4 py-12 text-xs text-slate-400">
+      <footer className="border-t border-emerald-950/60 bg-[#041611]/75 backdrop-blur-md px-4 py-12 text-xs text-slate-400">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <span className="text-2xl">🌴</span>
