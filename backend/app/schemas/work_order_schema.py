@@ -37,6 +37,8 @@ class WorkOrderItemResponse(BaseModel):
     original_media_url: str
     post_repair_media_url: Optional[str] = None
     location_verified: Optional[str] = None
+    defect_lat: Optional[float] = None
+    defect_lon: Optional[float] = None
 
 
 class PrioritizationMetricsResponse(BaseModel):

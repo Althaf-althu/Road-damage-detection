@@ -59,7 +59,9 @@ def list_work_orders(
             wo.completed_at,
             dc.media_url                             AS original_media_url,
             dc.post_repair_media_url,
-            wo.location_verified
+            wo.location_verified,
+            dc.raw_lat                               AS defect_lat,
+            dc.raw_lon                               AS defect_lon
         FROM work_orders wo
         JOIN defect_complaints dc ON dc.id = wo.complaint_id
         LEFT JOIN road_segments r ON r.id = dc.road_segment_id
@@ -84,6 +86,8 @@ def list_work_orders(
             original_media_url=r.original_media_url,
             post_repair_media_url=r.post_repair_media_url,
             location_verified=r.location_verified,
+            defect_lat=r.defect_lat,
+            defect_lon=r.defect_lon,
         )
         for r in results
     ]
