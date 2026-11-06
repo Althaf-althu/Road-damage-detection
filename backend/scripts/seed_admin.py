@@ -31,20 +31,33 @@ DATABASE_URL = os.getenv(
     "postgresql://postgres:postgrespassword@localhost:5432/road_damage_db"
 )
 
-DEFAULT_ADMIN_EMAIL = "admin@pwd.kerala.gov.in"
-DEFAULT_ADMIN_NAME = "Kerala PWD Administrator"
-DEFAULT_ADMIN_PASSWORD = "ChangeMe@2026!"  # Must be changed on first login
+DEFAULT_ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "admin@pwd.kerala.gov.in")
+DEFAULT_ADMIN_NAME = os.getenv("ADMIN_NAME", "Kerala PWD Administrator")
+DEFAULT_ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "ChangeMe@2026!")
 
 
-def seed_admin(email: str, name: str, password: str, role: str = "admin"):
+def seed_admin(email: str, name: str, password: str, role: str = "admin", update_existing: bool = True):
     engine = create_engine(DATABASE_URL, pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
 
     with Session() as session:
         existing = session.query(User).filter(User.email == email).first()
         if existing:
-            logger.info(f"Admin user already exists: {email} (role: {existing.role})")
-            return
+            if update_existing:
+                existing.password_hash = hash_password(password)
+                existing.full_name = name
+                existing.role = role
+                existing.is_active = True
+                session.commit()
+                logger.info("=" * 50)
+                logger.info(f"✅ Existing user credentials updated successfully!")
+                logger.info(f"   Email:    {email}")
+                logger.info(f"   Role:     {role}")
+                logger.info("=" * 50)
+                return
+            else:
+                logger.info(f"Admin user already exists: {email} (role: {existing.role})")
+                return
 
         admin = User(
             email=email,
@@ -59,9 +72,7 @@ def seed_admin(email: str, name: str, password: str, role: str = "admin"):
     logger.info("=" * 50)
     logger.info("✅ Admin user created successfully!")
     logger.info(f"   Email:    {email}")
-    logger.info(f"   Password: {password}")
     logger.info(f"   Role:     {role}")
-    logger.info("⚠️  CHANGE THE DEFAULT PASSWORD IMMEDIATELY after first login!")
     logger.info("=" * 50)
 
 
