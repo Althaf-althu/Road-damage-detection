@@ -17,21 +17,15 @@ import {
   Droplets,
   Camera,
   ShieldCheck,
-  Compass,
   PhoneCall,
-  Sun,
-  CloudRain,
   Navigation,
-  FileText,
-  AlertTriangle,
 } from "lucide-react";
 
 interface ShowcaseItem {
   id: string;
   category: "all" | "citizen" | "ai" | "geotech" | "admin";
-  zone: "Malanad (Highlands)" | "Idanad (Midlands)" | "Theeram (Coastlands)";
+  zone: "Highlands (Malanad)" | "Midlands (Idanad)" | "Coastlands (Theeram)";
   title: string;
-  malayalamTitle: string;
   subtitle: string;
   description: string;
   image: string;
@@ -47,14 +41,12 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
   {
     id: "citizen-report",
     category: "citizen",
-    zone: "Theeram (Coastlands)",
+    zone: "Coastlands (Theeram)",
     title: "Citizen Road Distress Portal",
-    malayalamTitle: "പൗരന്മാരുടെ റോഡ് പരാതി പോർട്ടൽ",
     subtitle: "AI Geotagging · Alappuzha & Coastal Belt",
     description:
       "Capture road defects across coastal and backwater corridors with automatic client-side EXIF GPS extraction, 25m centerline snapping, and 30m PostGIS deduplication radar.",
-    image:
-      "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=1200&q=85",
+    image: "/images/kerala-backwaters.svg",
     locationTag: "Alappuzha & Kuttanad Waterways",
     badge: "Public Portal",
     badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40",
@@ -69,14 +61,12 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
   {
     id: "war-room",
     category: "admin",
-    zone: "Idanad (Midlands)",
+    zone: "Midlands (Idanad)",
     title: "Geospatial Municipal War Room",
-    malayalamTitle: "സ്റ്റേറ്റ് റോഡ് കൺട്രോൾ റൂം",
-    subtitle: "CartoDB Dark Tiles · Ernakulam NH 66 Corridor",
+    subtitle: "Real-Time Road Network Radar · Ernakulam NH 66",
     description:
-      "Full state operational network with dynamic color coding: Red (Active damage), Yellow (Maintenance underway), Green (Certified repaired <90 days), and Defect Density heatmaps.",
-    image:
-      "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1200&q=85",
+      "Full state operational network with dynamic color coding: Red (Active damage), Yellow (Maintenance underway), Green (Certified repaired within 90 days), and Defect Density heatmaps.",
+    image: "/images/kerala-highway.svg",
     locationTag: "Ernakulam — Kochi City & NH 66",
     badge: "Authority Console",
     badgeColor: "bg-amber-500/20 text-amber-300 border-amber-400/40",
@@ -91,14 +81,12 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
   {
     id: "geotech-ai",
     category: "geotech",
-    zone: "Malanad (Highlands)",
+    zone: "Highlands (Malanad)",
     title: "Geotechnical AI Material Advisory",
-    malayalamTitle: "ഭൂസാങ്കേതിക നിർമ്മാണ ഉപദേശി",
     subtitle: "Copernicus DEM & SoilGrids · Wayanad Mountain Passes",
     description:
       "Autonomous civil engineering consultant delivering IRC:SP:63 Interlocking Concrete Paver Blocks (ICPB) for monsoon floodplains and IRC:58 Rigid M-40 concrete for steep mountain roads.",
-    image:
-      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=85",
+    image: "/images/kerala-ghats.svg",
     locationTag: "Wayanad Thamarassery Churam Pass",
     badge: "AI Civil Consultant",
     badgeColor: "bg-teal-500/20 text-teal-300 border-teal-400/40",
@@ -113,14 +101,12 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
   {
     id: "segment-inspector",
     category: "admin",
-    zone: "Theeram (Coastlands)",
+    zone: "Coastlands (Theeram)",
     title: "Road Segment Inspector & MCDA Engine",
-    malayalamTitle: "റോഡ് സെഗ്മെന്റ് വിശകലന കേന്ദ്രം",
     subtitle: "Multi-Criteria Decision Analysis · Kozhikode Bypass",
     description:
       "Interactive split-pane segment visualizer computing P = 0.40S + 0.25T + 0.20R + 0.15Z with traffic density, sensitive zones (schools/hospitals), and millimeter cavity depth.",
-    image:
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=85",
+    image: "/images/kerala-inspector.svg",
     locationTag: "Kozhikode — Calicut Beach & Mini Bypass",
     badge: "MCDA Prioritization",
     badgeColor: "bg-sky-500/20 text-sky-300 border-sky-400/40",
@@ -135,14 +121,12 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
   {
     id: "work-orders",
     category: "admin",
-    zone: "Idanad (Midlands)",
+    zone: "Midlands (Idanad)",
     title: "Field Operations & Work Order Hub",
-    malayalamTitle: "വർക്ക് ഓർഡർ വിതരണ വിഭാഗം",
     subtitle: "30m Technician GPS Verification · Thiruvananthapuram",
     description:
       "Dispatch maintenance work orders to PWD sub-division depots with mandatory 30-meter on-site technician location checks and transactional Before/After citizen completion emails.",
-    image:
-      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=85",
+    image: "/images/kerala-depot.svg",
     locationTag: "Thiruvananthapuram PWD Headquarters",
     badge: "Field Operations",
     badgeColor: "bg-rose-500/20 text-rose-300 border-rose-400/40",
@@ -157,14 +141,12 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
   {
     id: "track-ticket",
     category: "citizen",
-    zone: "Theeram (Coastlands)",
+    zone: "Coastlands (Theeram)",
     title: "Citizen Resolution Tracking Gallery",
-    malayalamTitle: "പരാതി അന്വേഷണ സംവിധാനം",
     subtitle: "Public Accountability · Kumarakom Backwaters",
     description:
       "Input your ticket tracking code (e.g., KL-2026-XXXXX) to check real-time progress, assigned sub-division depot, and photographic evidence of post-repair restoration.",
-    image:
-      "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=1200&q=85",
+    image: "/images/kerala-tracking.svg",
     locationTag: "Kottayam — Kumarakom Tourism Corridor",
     badge: "Civic Tracking",
     badgeColor: "bg-amber-500/20 text-amber-300 border-amber-400/40",
@@ -179,40 +161,44 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
 ];
 
 const KERALA_DISTRICTS = [
-  { name: "Thiruvananthapuram", mal: "തിരുവനന്തപുരം", zone: "South", length: "2,840 km", count: 42 },
-  { name: "Kollam", mal: "കൊല്ലം", zone: "South", length: "2,190 km", count: 28 },
-  { name: "Pathanamthitta", mal: "പത്തനംതിട്ട", zone: "South", length: "1,870 km", count: 19 },
-  { name: "Alappuzha", mal: "ആലപ്പുഴ", zone: "Central", length: "1,620 km", count: 54 },
-  { name: "Kottayam", mal: "കോട്ടയം", zone: "Central", length: "2,410 km", count: 37 },
-  { name: "Idukki", mal: "ഇടുക്കി", zone: "Highland", length: "3,150 km", count: 68 },
-  { name: "Ernakulam", mal: "എറണാകുളം", zone: "Central", length: "3,320 km", count: 76 },
-  { name: "Thrissur", mal: "തൃശ്ശൂർ", zone: "Central", length: "2,980 km", count: 41 },
-  { name: "Palakkad", mal: "പാലക്കാട്", zone: "North", length: "3,450 km", count: 32 },
-  { name: "Malappuram", mal: "മലപ്പുറം", zone: "North", length: "3,210 km", count: 49 },
-  { name: "Kozhikode", mal: "കോഴിക്കോട്", zone: "North", length: "2,760 km", count: 51 },
-  { name: "Wayanad", mal: "വയനാട്", zone: "Highland", length: "1,940 km", count: 63 },
-  { name: "Kannur", mal: "കണ്ണൂർ", zone: "North", length: "2,890 km", count: 34 },
-  { name: "Kasaragod", mal: "കാസർഗോഡ്", zone: "North", length: "1,920 km", count: 22 },
+  { name: "Thiruvananthapuram", zone: "South", length: "2,840 km", count: 42 },
+  { name: "Kollam", zone: "South", length: "2,190 km", count: 28 },
+  { name: "Pathanamthitta", zone: "South", length: "1,870 km", count: 19 },
+  { name: "Alappuzha", zone: "Central", length: "1,620 km", count: 54 },
+  { name: "Kottayam", zone: "Central", length: "2,410 km", count: 37 },
+  { name: "Idukki", zone: "Highland", length: "3,150 km", count: 68 },
+  { name: "Ernakulam", zone: "Central", length: "3,320 km", count: 76 },
+  { name: "Thrissur", zone: "Central", length: "2,980 km", count: 41 },
+  { name: "Palakkad", zone: "North", length: "3,450 km", count: 32 },
+  { name: "Malappuram", zone: "North", length: "3,210 km", count: 49 },
+  { name: "Kozhikode", zone: "North", length: "2,760 km", count: 51 },
+  { name: "Wayanad", zone: "Highland", length: "1,940 km", count: 63 },
+  { name: "Kannur", zone: "North", length: "2,890 km", count: 34 },
+  { name: "Kasaragod", zone: "North", length: "1,920 km", count: 22 },
 ];
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>(" ");
   const [selectedDistrict, setSelectedDistrict] = useState<string>("Ernakulam");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  // Initialize search query cleanly
+  const query = searchQuery.trim().toLowerCase();
 
   const filteredItems = useMemo(() => {
     return SHOWCASE_ITEMS.filter((item) => {
       const matchesCategory =
         activeCategory === "all" || item.category === activeCategory;
       const matchesSearch =
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.locationTag.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.malayalamTitle.includes(searchQuery);
+        query === "" ||
+        item.title.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query) ||
+        item.locationTag.toLowerCase().includes(query) ||
+        item.subtitle.toLowerCase().includes(query);
       return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, query]);
 
   const activeDistrictData = useMemo(() => {
     return (
@@ -224,39 +210,35 @@ export default function Home() {
   const faqs = [
     {
       q: "How does the platform preserve Kerala's roads against the heavy South-West monsoon?",
-      mal: "തെക്കുപടിഞ്ഞാറൻ കാലവർഷക്കെടുതിയിൽ നിന്ന് കേരളത്തിലെ റോഡുകളെ ഈ സംവിധാനം എങ്ങനെ സംരക്ഷിക്കുന്നു?",
-      a: "Kerala receives 3,000+ mm of rainfall annually. Flat coastal regions with clay subgrades (e.g. Kuttanad) suffer severe bitumen stripping. Our Geotechnical AI applies IRC:SP:63 standards, prescribing Interlocking Concrete Paver Blocks (ICPB) and French drains to prevent hydrostatic ponding, while recommending IRC:58 Rigid M-40 concrete for steep Western Ghats ghat roads.",
+      a: "Kerala receives 3,000+ mm of rainfall annually. Flat coastal regions with clay subgrades (such as Kuttanad) suffer severe bitumen stripping. Our Geotechnical AI applies IRC:SP:63 standards, prescribing Interlocking Concrete Paver Blocks (ICPB) and French drains to prevent hydrostatic ponding, while recommending IRC:58 Rigid M-40 concrete for steep Western Ghats mountain passes.",
     },
     {
       q: "How does citizen photo upload work with automatic GPS extraction?",
-      mal: "മൊബൈൽ ഫോട്ടോ വഴി ജി.പി.എസ് വിവരങ്ങൾ എങ്ങനെ സ്വമേധയാ ശേഖരിക്കുന്നു?",
       a: "When you upload a photo from your mobile device, client-side EXIF parsers automatically extract the exact latitude and longitude. Our PostGIS engine snaps the point to the nearest road corridor within 25 meters. If metadata is stripped, an interactive map allows instant pin-drop verification.",
     },
     {
       q: "What is the 30-meter PostGIS Deduplication Radar?",
-      mal: "30 മീറ്റർ പരിധിയിലെ ഇരട്ട പരാതികൾ എങ്ങനെ കണ്ടെത്തുന്നു?",
       a: "To prevent multiple citizens submitting redundant tickets for the same pothole, PostGIS scans within a 30m geodesic radius. If an active ticket already exists, you are prompted to endorse (upvote) the ticket and subscribe your email for closed-loop completion proofs.",
     },
     {
       q: "How are field technicians verified during repair?",
-      mal: "റോഡ് അറ്റകുറ്റപ്പണി പൂർത്തിയാക്കിയത് എങ്ങനെ സാക്ഷ്യപ്പെടുത്തുന്നു?",
       a: "Field technicians must upload a post-repair photograph on-site. The platform verifies their device coordinates are within 30 meters of the original distress point before marking the work order RESOLVED and emailing before/after verification photos to citizens.",
     },
   ];
 
   return (
     <div className="min-h-screen bg-[#071612] text-slate-100 font-sans selection:bg-emerald-600 selection:text-white">
-      {/* 1. Traditional Kerala Kasavu Gold Top Ribbon */}
+      {/* 1. Traditional Kerala Gold Kasavu Ribbon */}
       <div className="bg-gradient-to-r from-[#042f24] via-[#064e3b] to-[#042f24] border-b border-amber-500/40 px-4 py-2 text-xs">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
             <span className="font-semibold text-amber-300">
-              കേരള സർക്കാർ • പൊതുമരാമത്ത് വകുപ്പ് (PWD)
+              Government of Kerala • Public Works Department (PWD)
             </span>
             <span className="hidden sm:inline text-slate-400">|</span>
             <span className="hidden sm:inline text-slate-300">
-              Government of Kerala • Public Works Department
+              Road Infrastructure &amp; Geotechnical Advisory System
             </span>
           </div>
 
@@ -290,28 +272,25 @@ export default function Home() {
                   Kerala PWD
                 </span>
                 <span className="text-xs font-semibold text-amber-400">
-                  സുരക്ഷിത പാത
+                  Safe Corridors
                 </span>
               </div>
               <div className="text-[11px] text-emerald-300 font-medium tracking-wider uppercase">
-                God&apos;s Own Country • Safe Roads Network
+                God&apos;s Own Country • Road Network
               </div>
             </div>
           </Link>
 
-          {/* Navigation Links */}
+          {/* Navigation Links (100% English) */}
           <div className="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-300">
-            <a href="#showcase" className="hover:text-amber-300 transition flex items-center gap-1">
-              <span>പോർട്ടലുകൾ</span>
-              <span className="text-xs text-slate-400 font-normal">(Portals)</span>
+            <a href="#showcase" className="hover:text-amber-300 transition">
+              Portals
             </a>
-            <a href="#districts" className="hover:text-amber-300 transition flex items-center gap-1">
-              <span>ജില്ലകൾ</span>
-              <span className="text-xs text-slate-400 font-normal">(Districts)</span>
+            <a href="#districts" className="hover:text-amber-300 transition">
+              Districts
             </a>
-            <a href="#geotech" className="hover:text-amber-300 transition flex items-center gap-1">
-              <span>ഭൂസാങ്കേതികം</span>
-              <span className="text-xs text-slate-400 font-normal">(Geotech AI)</span>
+            <a href="#geotech" className="hover:text-amber-300 transition">
+              Geotechnical AI
             </a>
             <a href="#faq" className="hover:text-amber-300 transition">
               FAQ
@@ -325,7 +304,7 @@ export default function Home() {
               className="flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-700 px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-emerald-900/40 hover:from-emerald-500 hover:to-teal-600 transition transform hover:-translate-y-0.5"
             >
               <Camera className="h-3.5 w-3.5" />
-              <span>പരാതി നൽകാം (Report)</span>
+              <span>Report Distress</span>
             </Link>
 
             <Link
@@ -341,25 +320,13 @@ export default function Home() {
 
       {/* 3. Hero Section — Kerala Tourism Cinematic Aesthetic */}
       <section className="relative overflow-hidden pt-12 pb-24 px-4 sm:px-6 lg:px-8 border-b border-emerald-950">
-        {/* Background Landscape Backdrop */}
-        <div className="absolute inset-0 -z-20 overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2000&q=85"
-            alt="Munnar Western Ghats Kerala Landscape"
-            className="h-full w-full object-cover object-center opacity-25 filter blur-[1px] transform scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#071612]/80 via-[#071612]/95 to-[#071612]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-emerald-600/20 via-teal-900/10 to-transparent"></div>
-        </div>
-
-        {/* Traditional Gold Accent Kasavu Divider Line */}
         <div className="max-w-4xl mx-auto h-[1px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent mb-8"></div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
           {/* Authentic Cultural Badge */}
           <div className="inline-flex items-center gap-2.5 rounded-full border border-amber-400/40 bg-amber-950/40 px-4 py-1.5 text-xs font-semibold text-amber-300 backdrop-blur-md mb-6 shadow-lg shadow-amber-950/30">
             <span className="text-base">⛵</span>
-            <span>ദൈവത്തിന്റെ സ്വന്തം നാട് • God&apos;s Own Country Road Network</span>
+            <span>God&apos;s Own Country • Safe Roads Network</span>
           </div>
 
           {/* Master Cinematic Title */}
@@ -370,14 +337,13 @@ export default function Home() {
             </span>
           </h1>
 
-          {/* Bilingual Subtitle */}
           <p className="mt-4 text-base sm:text-xl font-medium text-emerald-200/90 leading-relaxed max-w-3xl mx-auto">
-            കേരളത്തിലെ പച്ചപ്പ് നിറഞ്ഞ മലനിരകളും തീരദേശ പാതകളും മഴക്കാലക്കെടുതികളിൽ നിന്ന് സംരക്ഷിക്കാൻ കൃത്രിമ ബുദ്ധിയും ജനകീയ പങ്കാളിത്തവും.
+            Intelligent defect detection and geotechnical material science engineered for Kerala&apos;s tropical monsoon climate.
           </p>
 
           <p className="mt-2 text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            From the tea valleys of Munnar and Wayanad ghats to the palm-fringed backwaters of Alappuzha,
-            connecting citizen distress alerts to municipal war rooms and flood-resilient pavement designs.
+            From the misty tea valleys of Munnar and Wayanad mountain passes to the palm-fringed backwaters of Alappuzha,
+            connecting citizen distress alerts directly to municipal war rooms and flood-resilient pavement designs.
           </p>
 
           {/* Interactive Action Row */}
@@ -387,7 +353,7 @@ export default function Home() {
               className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-700 px-8 py-4 text-sm font-bold text-white shadow-xl shadow-emerald-950 hover:from-emerald-400 hover:to-teal-600 transition transform hover:-translate-y-0.5 border border-emerald-400/30"
             >
               <Camera className="h-4 w-4" />
-              <span>റോഡ് തകർച്ച റിപ്പോർട്ട് ചെയ്യാം</span>
+              <span>File Citizen Distress Report</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
 
@@ -406,7 +372,7 @@ export default function Home() {
               <Search className="absolute left-4 top-3.5 h-5 w-5 text-emerald-400" />
               <input
                 type="text"
-                value={searchQuery}
+                value={searchQuery === " " ? "" : searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search corridors (e.g. NH 66, MC Road, Wayanad Churam, Paver Blocks, Alappuzha)..."
                 className="w-full rounded-2xl border border-emerald-900/80 bg-[#09221b]/90 py-3.5 pl-12 pr-4 text-sm text-slate-100 placeholder-slate-400 shadow-2xl backdrop-blur-xl focus:border-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-400"
@@ -416,17 +382,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Kerala Geography 3-Zone Telemetry Bar (Malanad, Idanad, Theeram) */}
+      {/* 4. Kerala Geography 3-Zone Telemetry Bar (Highlands, Midlands, Coastlands) */}
       <section className="border-y border-emerald-950 bg-[#051a14] py-8 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Malanad */}
+          {/* Highlands */}
           <div className="flex items-center gap-4 rounded-2xl border border-emerald-900/60 bg-[#07221a]/70 p-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400 text-2xl">
               ⛰️
             </div>
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-                മലനാട് • Malanad (Highlands)
+                Highlands (Malanad)
               </div>
               <div className="text-lg font-extrabold text-white">
                 Wayanad &amp; Idukki Passes
@@ -437,14 +403,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Idanad */}
+          {/* Midlands */}
           <div className="flex items-center gap-4 rounded-2xl border border-amber-900/60 bg-[#07221a]/70 p-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400 text-2xl">
               🌿
             </div>
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                ഇടനാട് • Idanad (Midlands)
+                Midlands (Idanad)
               </div>
               <div className="text-lg font-extrabold text-white">
                 MC Road &amp; Laterite Ridges
@@ -455,14 +421,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Theeram */}
+          {/* Coastlands */}
           <div className="flex items-center gap-4 rounded-2xl border border-teal-900/60 bg-[#07221a]/70 p-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 text-2xl">
               🌊
             </div>
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-teal-400">
-                തീരദേശം • Theeram (Coastlands)
+                Coastlands (Theeram)
               </div>
               <div className="text-lg font-extrabold text-white">
                 Alappuzha &amp; Coastal NH 66
@@ -480,20 +446,20 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
           <div>
             <div className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-1">
-              സമഗ്ര സേവനങ്ങൾ • Comprehensive Portals
+              Comprehensive Modules
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               Kerala Road Infrastructure System Modules
             </h2>
           </div>
 
-          {/* Category Filter Pills */}
+          {/* Category Filter Pills (100% English) */}
           <div className="flex flex-wrap items-center gap-2">
             {[
-              { key: "all", label: "എല്ലാം (All)" },
-              { key: "citizen", label: "പൗരന്മാർ (Citizen)" },
-              { key: "admin", label: "കൺട്രോൾ റൂം (War Room)" },
-              { key: "geotech", label: "ഭൂസാങ്കേതികം (Geotech)" },
+              { key: "all", label: "All Modules" },
+              { key: "citizen", label: "Citizen Portals" },
+              { key: "admin", label: "War Room Console" },
+              { key: "geotech", label: "Geotechnical AI" },
             ].map((cat) => (
               <button
                 key={cat.key}
@@ -510,22 +476,21 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Showcase Grid of Cards */}
+        {/* Showcase Grid of Cards with Local SVG Imagery */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item) => (
             <div
               key={item.id}
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-emerald-900/80 bg-[#07221a]/60 backdrop-blur-md transition-all duration-300 hover:border-amber-400/60 hover:bg-[#07261d] hover:shadow-2xl hover:shadow-emerald-950"
             >
-              {/* Photo Header */}
+              {/* Photo Header (Uses 100% Local Reliable SVG Art) */}
               <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07221a] via-[#07221a]/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07221a] via-[#07221a]/30 to-transparent"></div>
 
                 {/* Location Pill */}
                 <div className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-lg bg-black/75 px-3 py-1 text-[11px] font-semibold text-emerald-300 backdrop-blur-md border border-emerald-600/40">
@@ -545,9 +510,6 @@ export default function Home() {
 
               {/* Card Body */}
               <div className="flex flex-1 flex-col p-6">
-                <div className="text-[11px] font-bold text-amber-400 mb-0.5">
-                  {item.malayalamTitle}
-                </div>
                 <h3 className="text-lg font-extrabold text-white mb-1 group-hover:text-emerald-300 transition">
                   {item.title}
                 </h3>
@@ -587,7 +549,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-1">
-              കേരളത്തിലെ 14 ജില്ലകൾ • All 14 Districts of Kerala
+              All 14 Revenue Districts
             </div>
             <h2 className="text-3xl font-extrabold text-white tracking-tight">
               Statewide Road Network Health Radar
@@ -597,20 +559,19 @@ export default function Home() {
             </p>
           </div>
 
-          {/* District Buttons Row */}
+          {/* District Buttons Row (100% English) */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {KERALA_DISTRICTS.map((d) => (
               <button
                 key={d.name}
                 onClick={() => setSelectedDistrict(d.name)}
-                className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
+                className={`rounded-xl px-4 py-2 text-xs font-bold transition ${
                   selectedDistrict === d.name
                     ? "bg-amber-400 text-slate-950 shadow-lg shadow-amber-500/25"
                     : "border border-emerald-900/80 bg-[#08241c] text-slate-300 hover:text-white"
                 }`}
               >
-                <span>{d.name}</span>{" "}
-                <span className="text-[10px] opacity-75">({d.mal})</span>
+                <span>{d.name}</span>
               </button>
             ))}
           </div>
@@ -620,7 +581,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-emerald-900/60">
               <div>
                 <div className="text-xs font-bold text-amber-400 uppercase tracking-widest">
-                  {activeDistrictData.zone} Kerala Zone • {activeDistrictData.mal}
+                  {activeDistrictData.zone} Kerala Region
                 </div>
                 <h3 className="text-2xl font-black text-white mt-1">
                   {activeDistrictData.name} District PWD Division
@@ -671,7 +632,7 @@ export default function Home() {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/40 bg-teal-950/40 px-3.5 py-1 text-xs font-semibold text-teal-300">
               <Mountain className="h-3.5 w-3.5 text-amber-400" />
-              <span>കാലവർഷ പ്രതിരോധ നിർമ്മാണ രീതികൾ</span>
+              <span>Climate-Resilient Engineering</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
@@ -721,7 +682,7 @@ export default function Home() {
             <div className="rounded-3xl border border-emerald-900/80 bg-[#08261e]/90 p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
               <div className="flex items-center justify-between pb-4 border-b border-emerald-900/60 mb-6 text-xs">
                 <span className="font-bold text-amber-300">
-                  ഭൂസാങ്കേതിക ടെലിമെട്രി • Geotechnical Live Telemetry
+                  Geotechnical Live Telemetry
                 </span>
                 <span className="rounded-md bg-emerald-500/20 px-2.5 py-1 text-[10px] font-bold text-emerald-300 border border-emerald-500/40">
                   REAL-TIME MODEL
@@ -778,7 +739,7 @@ export default function Home() {
       <section id="faq" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-emerald-950">
         <div className="text-center mb-10">
           <div className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-1">
-            സംശയങ്ങൾ • Information &amp; FAQ
+            Information &amp; FAQ
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             Frequently Asked Questions
@@ -797,7 +758,6 @@ export default function Home() {
               >
                 <div>
                   <div>{faq.q}</div>
-                  <div className="text-xs text-emerald-400 font-normal mt-0.5">{faq.mal}</div>
                 </div>
                 <ChevronDown
                   className={`h-5 w-5 text-emerald-400 shrink-0 ml-4 transition-transform ${
@@ -821,10 +781,10 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <span className="text-3xl mb-2 inline-block">🌴</span>
           <h2 className="text-3xl font-black text-white tracking-tight">
-            നമുക്കൊരുമിച്ച് കേരളത്തിന്റെ വഴികൾ സുരക്ഷിതമാക്കാം
+            Keeping Kerala&apos;s Roads Safe, Pristine &amp; Connected
           </h2>
           <p className="text-sm font-medium text-amber-300 mt-1">
-            Let&apos;s Keep God&apos;s Own Country Safe &amp; Pristine Together
+            God&apos;s Own Country • Collaborative Civic Action
           </p>
           <p className="text-xs text-slate-300 mt-3 max-w-xl mx-auto leading-relaxed">
             Spotted a pothole, caved edge, or flooded corridor? Capture a photo with your phone and file a report in under 30 seconds.
@@ -834,13 +794,13 @@ export default function Home() {
               href="/citizen/report"
               className="rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 px-6 py-3.5 text-xs font-extrabold text-slate-950 shadow-xl hover:from-amber-300 hover:to-amber-400 transition"
             >
-              റിപ്പോർട്ട് നൽകാം (File Report)
+              File Distress Report
             </Link>
             <Link
               href="/citizen/track"
               className="rounded-xl border border-emerald-400/50 bg-[#07241c] px-6 py-3.5 text-xs font-extrabold text-white hover:bg-emerald-900/50 transition"
             >
-              പരാതി അന്വേഷിക്കാം (Track Ticket)
+              Track Active Ticket
             </Link>
           </div>
         </div>
@@ -853,7 +813,7 @@ export default function Home() {
             <span className="text-2xl">🌴</span>
             <div>
               <div className="font-bold text-white text-sm">
-                കേരള പൊതുമരാമത്ത് വകുപ്പ്
+                Kerala Public Works Department
               </div>
               <div className="text-[11px] text-emerald-400 font-medium">
                 Public Works Department • Government of Kerala
@@ -863,24 +823,24 @@ export default function Home() {
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-slate-300 font-medium">
             <Link href="/citizen/report" className="hover:text-amber-400 transition">
-              പരാതി നൽകാം (Report)
+              Report Distress
             </Link>
             <Link href="/citizen/track" className="hover:text-amber-400 transition">
-              അന്വേഷണം (Track)
+              Track Ticket
             </Link>
             <Link href="/admin/dashboard" className="hover:text-amber-400 transition">
-              കൺട്രോൾ റൂം (War Room)
+              War Room
             </Link>
             <Link href="/admin/geotech" className="hover:text-amber-400 transition">
-              ഭൂസാങ്കേതികം (Geotech)
+              Geotechnical AI
             </Link>
             <Link href="/auth/login?role=admin" className="hover:text-amber-400 transition">
-              ഉദ്യോഗസ്ഥ ലോഗിൻ (Login)
+              Authority Login
             </Link>
           </div>
 
           <div className="text-center md:text-right text-[11px] text-slate-500">
-            © 2026 Kerala PWD. Designed with &quot;God&apos;s Own Country&quot; heritage.
+            © 2026 Kerala PWD. Built with Free &amp; Open Source Software (FOSS).
           </div>
         </div>
       </footer>
