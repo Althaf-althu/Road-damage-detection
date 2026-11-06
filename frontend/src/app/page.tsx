@@ -147,7 +147,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     description:
       "Input your ticket tracking code (e.g., KL-2026-XXXXX) to check real-time progress, assigned sub-division depot, and photographic evidence of post-repair restoration.",
     image: "/images/kumarakom-kottayam.jpg",
-    locationTag: "Kottayam — Kumarakom Tourism Corridor",
+    locationTag: "Kottayam — Kumarakom Lake Route",
     badge: "Civic Tracking",
     badgeColor: "bg-amber-500/20 text-amber-300 border-amber-400/40",
     href: "/citizen/track",
@@ -228,35 +228,35 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#071612] text-slate-100 font-sans selection:bg-emerald-600 selection:text-white">
-      {/* 1. Traditional Kerala Gold Kasavu Ribbon */}
+      {/* 1. Header Ribbon */}
       <div className="bg-gradient-to-r from-[#042f24] via-[#064e3b] to-[#042f24] border-b border-amber-500/40 px-4 py-2 text-xs">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
             <span className="font-semibold text-amber-300">
-              Government of Kerala • Public Works Department (PWD)
+              Kerala Road Distress &amp; Maintenance Prioritization System
             </span>
             <span className="hidden sm:inline text-slate-400">|</span>
             <span className="hidden sm:inline text-slate-300">
-              Road Infrastructure &amp; Geotechnical Advisory System
+              Civil Infrastructure &amp; Geotechnical Advisory Platform
             </span>
           </div>
 
           <div className="flex items-center gap-4 text-[11px] text-amber-200/90 font-medium">
             <span className="flex items-center gap-1">
               <PhoneCall className="h-3 w-3 text-amber-400" />
-              <span>PWD Toll-Free: 1800-425-7771</span>
+              <span>Civic Support: 24/7 Monitoring Desk</span>
             </span>
             <span className="hidden md:inline">•</span>
             <span className="hidden md:flex items-center gap-1 text-emerald-300">
               <ShieldCheck className="h-3 w-3" />
-              <span>IRC:SP:63 &amp; IRC:58 Certified</span>
+              <span>IRC Standards Compliant</span>
             </span>
           </div>
         </div>
       </div>
 
-      {/* 2. Main Kerala Tourism-Inspired Navbar */}
+      {/* 2. Main Navbar */}
       <nav className="sticky top-0 z-50 border-b border-emerald-900/60 bg-[#071a14]/90 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo & Emblem */}
@@ -276,7 +276,7 @@ export default function Home() {
                 </span>
               </div>
               <div className="text-[11px] text-emerald-300 font-medium tracking-wider uppercase">
-                God&apos;s Own Country • Road Network
+                Road Network &amp; Maintenance Portal
               </div>
             </div>
           </Link>
@@ -318,15 +318,15 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* 3. Hero Section — Kerala Tourism Cinematic Aesthetic */}
+      {/* 3. Hero Section */}
       <section className="relative overflow-hidden pt-12 pb-24 px-4 sm:px-6 lg:px-8 border-b border-emerald-950">
         <div className="max-w-4xl mx-auto h-[1px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent mb-8"></div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          {/* Authentic Cultural Badge */}
+          {/* Authentic Regional Badge */}
           <div className="inline-flex items-center gap-2.5 rounded-full border border-amber-400/40 bg-amber-950/40 px-4 py-1.5 text-xs font-semibold text-amber-300 backdrop-blur-md mb-6 shadow-lg shadow-amber-950/30">
             <span className="text-base">⛵</span>
-            <span>God&apos;s Own Country • Safe Roads Network</span>
+            <span>Civic Infrastructure • Safe Roads Network</span>
           </div>
 
           {/* Master Cinematic Title */}
@@ -441,7 +441,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Showcase Category Filter Pills & Tourism Card Grid */}
+      {/* 5. Showcase Category Filter Pills & Module Card Grid */}
       <section id="showcase" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
           <div>
@@ -784,7 +784,7 @@ export default function Home() {
             Keeping Kerala&apos;s Roads Safe, Pristine &amp; Connected
           </h2>
           <p className="text-sm font-medium text-amber-300 mt-1">
-            God&apos;s Own Country • Collaborative Civic Action
+            Community-Driven Road Infrastructure &amp; Safety
           </p>
           <p className="text-xs text-slate-300 mt-3 max-w-xl mx-auto leading-relaxed">
             Spotted a pothole, caved edge, or flooded corridor? Capture a photo with your phone and file a report in under 30 seconds.
@@ -806,17 +806,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10. Cultural Footer with Kasavu Border */}
+      {/* 10. Platform Footer */}
       <footer className="border-t border-emerald-950 bg-[#041611] px-4 py-12 text-xs text-slate-400">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <span className="text-2xl">🌴</span>
             <div>
               <div className="font-bold text-white text-sm">
-                Kerala Public Works Department
+                Kerala Road Infrastructure System
               </div>
               <div className="text-[11px] text-emerald-400 font-medium">
-                Public Works Department • Government of Kerala
+                Public Works &amp; Municipal Road Distress Platform
               </div>
             </div>
           </div>
@@ -840,7 +840,7 @@ export default function Home() {
           </div>
 
           <div className="text-center md:text-right text-[11px] text-slate-500">
-            © 2026 Kerala PWD. Built with Free &amp; Open Source Software (FOSS).
+            © 2026 Safe Corridors Initiative. Built with Free &amp; Open Source Software (FOSS).
           </div>
         </div>
       </footer>
