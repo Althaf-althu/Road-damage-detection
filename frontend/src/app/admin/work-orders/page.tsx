@@ -164,7 +164,7 @@ export default function WorkOrdersPage() {
       </div>
 
       {/* Orders Table */}
-      <div className="rounded-2xl border border-slate-800 bg-slate-800/40 shadow-2xl overflow-hidden">
+      <div className="rounded-2xl border border-slate-700/80 bg-slate-900/90 backdrop-blur-md shadow-2xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-slate-300">
             <thead className="bg-slate-900/80 text-[10px] uppercase font-bold tracking-wider text-slate-400 border-b border-slate-800">

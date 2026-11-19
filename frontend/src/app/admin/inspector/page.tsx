@@ -207,7 +207,7 @@ function InspectorContent() {
           </div>
 
           {selected && (
-            <div className="rounded-2xl border border-slate-800 bg-slate-800/40 p-5 shadow-2xl space-y-5 flex-1">
+            <div className="rounded-2xl border border-slate-700/80 bg-slate-900/90 backdrop-blur-md p-5 shadow-2xl space-y-5 flex-1">
               {/* Header */}
               <div className="flex items-start justify-between">
                 <div>
@@ -341,7 +341,7 @@ function InspectorContent() {
         </div>
 
         {/* Right Pane (Dynamic Map Canvas) */}
-        <div className="lg:col-span-6 h-[550px] lg:h-auto rounded-2xl border border-slate-800 bg-slate-800/40 p-4 shadow-2xl flex flex-col">
+        <div className="lg:col-span-6 h-[550px] lg:h-auto rounded-2xl border border-slate-700/80 bg-slate-900/90 backdrop-blur-md p-4 shadow-2xl flex flex-col">
           <div className="flex items-center justify-between mb-3 text-xs">
             <span className="font-semibold text-slate-300">
               Corridor Halo &amp; 30m Clustering Radar

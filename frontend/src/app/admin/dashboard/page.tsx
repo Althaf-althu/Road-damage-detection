@@ -80,24 +80,24 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="space-y-6">
-      {/* Top Header & Actions */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      {/* Top Header & Actions — High-contrast administrative banner */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900/90 border border-slate-700/80 p-5 rounded-2xl backdrop-blur-md shadow-2xl">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          <h1 className="text-2xl font-black tracking-tight text-white sm:text-3xl drop-shadow-sm">
             Geospatial War Room
           </h1>
-          <p className="mt-1 text-xs sm:text-sm text-slate-400">
+          <p className="mt-1 text-xs sm:text-sm text-slate-200 font-medium">
             Real-time municipal road network telemetry, defect clustering &amp; operational maintenance corridors.
           </p>
         </div>
 
         <div className="flex items-center gap-3">
-          <label className="flex items-center gap-2 text-xs font-semibold text-slate-300 bg-slate-800 px-3 py-2 rounded-xl border border-slate-700 cursor-pointer hover:bg-slate-700 transition-all">
+          <label className="flex items-center gap-2 text-xs font-bold text-slate-200 bg-slate-800/95 px-3.5 py-2.5 rounded-xl border border-slate-600 cursor-pointer hover:bg-slate-700 transition-all shadow-md">
             <input
               type="checkbox"
               checked={showHeatmap}
               onChange={(e) => setShowHeatmap(e.target.checked)}
-              className="rounded border-slate-600 text-sky-500 focus:ring-sky-500"
+              className="rounded border-slate-500 text-sky-500 focus:ring-sky-500"
             />
             🔥 Density Heatmap
           </label>
@@ -105,72 +105,81 @@ export default function AdminDashboardPage() {
           <button
             type="button"
             onClick={() => router.push("/admin/inspector")}
-            className="rounded-xl bg-sky-600 hover:bg-sky-500 px-4 py-2 text-xs font-bold text-white shadow-lg shadow-sky-600/25 transition-all"
+            className="rounded-xl bg-sky-600 hover:bg-sky-500 px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-sky-600/30 transition-all border border-sky-400/40"
           >
             Open Segment Inspector →
           </button>
         </div>
       </div>
 
-      {/* KPI Operational Metrics Bar */}
+      {/* KPI Operational Metrics Bar — High contrast cards with readable labels */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-        <div className="rounded-2xl border border-slate-800 bg-slate-800/40 p-4 shadow-xl">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Total Active</p>
-          <p className="mt-1 text-2xl font-extrabold text-white">
+        <div className="rounded-2xl border border-slate-700/80 bg-slate-900/90 p-4 shadow-xl backdrop-blur-md">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-300">Total Active</p>
+          <p className="mt-1 text-2xl font-black text-white">
             {metrics?.total_active_complaints ?? "--"}
           </p>
-          <span className="text-[10px] text-slate-500">Unresolved complaints</span>
+          <span className="text-[11px] font-medium text-slate-300">Unresolved complaints</span>
         </div>
 
-        <div className="rounded-2xl border border-red-500/30 bg-red-950/20 p-4 shadow-xl">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-red-400">🔴 Critical Hazards</p>
-          <p className="mt-1 text-2xl font-extrabold text-red-400">
+        <div className="rounded-2xl border border-red-500/50 bg-slate-900/95 p-4 shadow-xl backdrop-blur-md">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-red-300 flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+            Critical Hazards
+          </p>
+          <p className="mt-1 text-2xl font-black text-red-400">
             {metrics?.critical_count ?? "--"}
           </p>
-          <span className="text-[10px] text-red-500/80">Priority Score ≥ 75</span>
+          <span className="text-[11px] font-medium text-red-200">Priority Score ≥ 75</span>
         </div>
 
-        <div className="rounded-2xl border border-amber-500/30 bg-amber-950/20 p-4 shadow-xl">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-amber-400">🟡 Under Maintenance</p>
-          <p className="mt-1 text-2xl font-extrabold text-amber-400">
+        <div className="rounded-2xl border border-amber-500/50 bg-slate-900/95 p-4 shadow-xl backdrop-blur-md">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-amber-400"></span>
+            Under Maintenance
+          </p>
+          <p className="mt-1 text-2xl font-black text-amber-300">
             {metrics?.under_maintenance_count ?? "--"}
           </p>
-          <span className="text-[10px] text-amber-500/80">Field crews deployed</span>
+          <span className="text-[11px] font-medium text-amber-200">Field crews deployed</span>
         </div>
 
-        <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/20 p-4 shadow-xl">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400">🟢 Restored (30d)</p>
-          <p className="mt-1 text-2xl font-extrabold text-emerald-400">
+        <div className="rounded-2xl border border-emerald-500/50 bg-slate-900/95 p-4 shadow-xl backdrop-blur-md">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-300 flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
+            Restored (30d)
+          </p>
+          <p className="mt-1 text-2xl font-black text-emerald-300">
             {metrics?.resolved_past_month ?? "--"}
           </p>
-          <span className="text-[10px] text-emerald-500/80">Verified completions</span>
+          <span className="text-[11px] font-medium text-emerald-200">Verified completions</span>
         </div>
 
-        <div className="rounded-2xl border border-slate-800 bg-slate-800/40 p-4 shadow-xl">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Avg Priority</p>
-          <p className="mt-1 text-2xl font-extrabold text-sky-400">
+        <div className="rounded-2xl border border-slate-700/80 bg-slate-900/90 p-4 shadow-xl backdrop-blur-md">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-300">Avg Priority</p>
+          <p className="mt-1 text-2xl font-black text-sky-400">
             {metrics?.average_priority_score ?? "--"}
-            <span className="text-xs font-normal text-slate-500"> /100</span>
+            <span className="text-xs font-normal text-slate-400"> /100</span>
           </p>
-          <span className="text-[10px] text-slate-500">MCDA weighted average</span>
+          <span className="text-[11px] font-medium text-slate-300">MCDA weighted average</span>
         </div>
 
-        <div className="rounded-2xl border border-slate-800 bg-slate-800/40 p-4 shadow-xl col-span-2 sm:col-span-1">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Highest Risk Corridor</p>
-          <p className="mt-1 text-xs font-bold text-white truncate" title={metrics?.highest_risk_corridor}>
+        <div className="rounded-2xl border border-slate-700/80 bg-slate-900/90 p-4 shadow-xl backdrop-blur-md col-span-2 sm:col-span-1">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-300">Highest Risk Corridor</p>
+          <p className="mt-1 text-xs font-black text-white truncate" title={metrics?.highest_risk_corridor}>
             {metrics?.highest_risk_corridor || "Nominal state"}
           </p>
-          <span className="text-[10px] text-slate-500">Requires immediate patch</span>
+          <span className="text-[11px] font-medium text-slate-300">Requires immediate patch</span>
         </div>
       </div>
 
       {/* Main Vector War Room Map */}
-      <div className="rounded-2xl border border-slate-800 bg-slate-800/40 p-4 shadow-2xl">
+      <div className="rounded-2xl border border-slate-700/80 bg-slate-900/90 p-4 shadow-2xl backdrop-blur-md">
         <div className="flex items-center justify-between mb-3 text-xs">
-          <span className="font-semibold text-slate-300">
+          <span className="font-bold text-slate-200">
             State Road Corridors · Operational Status Layer
           </span>
-          <span className="text-slate-400 text-[11px]">
+          <span className="text-amber-300 font-semibold text-[11px] bg-amber-500/10 border border-amber-500/30 px-2.5 py-1 rounded-full">
             ⚡ Click any coloured corridor polyline to inspect defects
           </span>
         </div>
