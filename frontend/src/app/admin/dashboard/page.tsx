@@ -9,7 +9,7 @@ import { endpoints, statusColours } from "@/config/endpoints";
 // Dynamically import Leaflet map components
 const WarRoomMap = dynamic(
   () => import("./WarRoomMapComponent").then((mod) => mod.WarRoomMapComponent),
-  { ssr: false, loading: () => <div className="h-[520px] w-full rounded-2xl bg-slate-800 animate-pulse flex items-center justify-center text-slate-500 text-sm">Loading Kerala Road Network Operations Canvas...</div> }
+  { ssr: false, loading: () => <div className="h-[520px] w-full rounded-2xl bg-slate-800 animate-pulse flex items-center justify-center text-slate-500 text-sm">Loading Road Network Operations Canvas...</div> }
 );
 
 interface Metrics {
@@ -168,7 +168,7 @@ export default function AdminDashboardPage() {
       <div className="rounded-2xl border border-slate-800 bg-slate-800/40 p-4 shadow-2xl">
         <div className="flex items-center justify-between mb-3 text-xs">
           <span className="font-semibold text-slate-300">
-            Kerala State Road Corridors · Operational Status Layer
+            State Road Corridors · Operational Status Layer
           </span>
           <span className="text-slate-400 text-[11px]">
             ⚡ Click any coloured corridor polyline to inspect defects

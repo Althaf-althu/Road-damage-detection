@@ -246,7 +246,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
             <span className="font-semibold text-amber-300">
-              Kerala Road Distress &amp; Maintenance Prioritization System
+              Road Distress &amp; Maintenance Prioritization System
             </span>
             <span className="hidden sm:inline text-slate-400">|</span>
             <span className="hidden sm:inline text-slate-300">
@@ -343,14 +343,14 @@ export default function Home() {
 
           {/* Master Cinematic Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.15]">
-            Preserving Kerala&apos;s Scenic Roads with{" "}
+            Preserving Scenic Roads with{" "}
             <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">
               Civic AI &amp; Green Engineering
             </span>
           </h1>
 
           <p className="mt-4 text-base sm:text-xl font-medium text-emerald-200/90 leading-relaxed max-w-3xl mx-auto">
-            Intelligent defect detection and geotechnical material science engineered for Kerala&apos;s tropical monsoon climate.
+            Intelligent defect detection and geotechnical material science engineered for tropical monsoon climates.
           </p>
 
           <p className="mt-2 text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
@@ -461,7 +461,7 @@ export default function Home() {
               Comprehensive Modules
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Kerala Road Infrastructure System Modules
+              Road Maintenance Infrastructure System Modules
             </h2>
           </div>
 
@@ -648,7 +648,7 @@ export default function Home() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
-              Kerala&apos;s High-Rainfall Pavement Challenge Solved by AI
+              High-Rainfall Pavement Challenge Solved by AI
             </h2>
 
             <p className="text-sm text-slate-300 leading-relaxed">
@@ -793,7 +793,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <span className="text-3xl mb-2 inline-block">🌴</span>
           <h2 className="text-3xl font-black text-white tracking-tight">
-            Keeping Kerala&apos;s Roads Safe, Pristine &amp; Connected
+            Keeping Roads Safe, Pristine &amp; Connected
           </h2>
           <p className="text-sm font-medium text-amber-300 mt-1">
             Community-Driven Road Infrastructure &amp; Safety
@@ -825,7 +825,7 @@ export default function Home() {
             <span className="text-2xl">🌴</span>
             <div>
               <div className="font-bold text-white text-sm">
-                Kerala Road Infrastructure System
+                Road Maintenance Infrastructure System
               </div>
               <div className="text-[11px] text-emerald-400 font-medium">
                 Public Works &amp; Municipal Road Distress Platform
