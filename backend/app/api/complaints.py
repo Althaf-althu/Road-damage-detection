@@ -11,7 +11,7 @@ from app.database import get_db
 from app.models.complaint import DefectComplaint
 from app.models.road_segment import RoadSegment
 from app.models.user import User
-from app.services.auth_service import get_current_user
+from app.services.auth_service import get_current_user, get_optional_user
 from app.services.deduplication import find_nearby_active_complaint
 from app.workers.tasks import run_ml_inference
 from app.config_apis import app_config
@@ -93,7 +93,7 @@ async def submit_complaint(
     longitude: float = Form(...),
     citizen_email: str = Form(...),
     db: Session = Depends(get_db),
-    current_user: Optional[User] = None,
+    current_user: Optional[User] = Depends(get_optional_user),
 ):
     """
     Intake citizen complaint with media proof, perform road snapping, save record, and queue ML vision job.
