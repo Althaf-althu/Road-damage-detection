@@ -31,12 +31,40 @@ async def lifespan(app: FastAPI):
     logger.info(f"Starting {api_keys.REGION_AUTHORITY} Road Damage System")
     logger.info(f"Region: {api_keys.REGION_DISPLAY_NAME} | OSM Relation: {api_keys.REGION_OSM_RELATION_ID}")
     try:
-        from app.database import Base, engine
+        from app.database import Base, engine, SessionLocal
         import app.models
         Base.metadata.create_all(bind=engine)
         logger.info("Database tables initialized successfully in PostgreSQL.")
+
+        # Automatically ensure admin credentials exist from environment variables
+        admin_email = os.getenv("ADMIN_EMAIL")
+        admin_pass = os.getenv("ADMIN_PASSWORD")
+        admin_name = os.getenv("ADMIN_NAME", "Administrator")
+        if admin_email and admin_pass:
+            from app.models.user import User
+            from app.services.auth_service import hash_password
+            with SessionLocal() as session:
+                admin_user = session.query(User).filter(User.email == admin_email).first()
+                if not admin_user:
+                    new_admin = User(
+                        email=admin_email,
+                        password_hash=hash_password(admin_pass),
+                        full_name=admin_name,
+                        role="admin",
+                        is_active=True,
+                    )
+                    session.add(new_admin)
+                    session.commit()
+                    logger.info(f"Auto-seeded admin user on startup: {admin_email}")
+                else:
+                    admin_user.password_hash = hash_password(admin_pass)
+                    admin_user.full_name = admin_name
+                    admin_user.role = "admin"
+                    admin_user.is_active = True
+                    session.commit()
+                    logger.info(f"Verified and updated admin credentials on startup: {admin_email}")
     except Exception as e:
-        logger.warning(f"Database schema auto-creation note: {e}")
+        logger.warning(f"Database startup initialization note: {e}")
     yield
     logger.info("Shutting down Road Damage System")
 
