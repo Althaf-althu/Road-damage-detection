@@ -1,0 +1,179 @@
+================================================================================
+ROAD MAINTENANCE & DISTRESS PRIORITIZATION SYSTEM
+COMPREHENSIVE END-TO-END TEST LOG, SAMPLE DATA & DEFECT RESOLUTION REPORT
+================================================================================
+Date: 2026-11-19
+Environment: Docker Compose (Backend, Frontend, ML Vision Pipeline, Celery Worker, PostgreSQL/PostGIS, Redis)
+Status: ALL TESTS PASSED (HTTP 200 / PASS)
+Branch: master
+Repository: https://github.com/Althaf-althu/Road-damage-detection.git
+================================================================================
+
+--------------------------------------------------------------------------------
+1. SAMPLE TEST DATA & CREDENTIALS USED
+--------------------------------------------------------------------------------
+
+[CITIZEN / CUSTOMER PROFILE]
+- Full Name: Kiran Kumar
+- Email: kiran.citizen@example.com
+- Password: CitizenSecure2026!
+- Mobile Number: +919847123456
+- User ID (UUID): 23362846-4aa0-4936-94b1-08f5e683afe4
+- Role: citizen
+- Registration Endpoint: POST http://localhost:8000/api/v1/auth/register
+- Login Endpoint: POST http://localhost:8000/api/v1/auth/login
+
+[ADMINISTRATOR PROFILE]
+- Full Name: Althaf
+- Email: althaf.ameer786@gmail.com
+- Password: @Althaf786
+- User ID (UUID): c0240378-4e2f-486a-973c-9414effe609f
+- Role: admin (Operations Command & Dispatch Console)
+- Configuration: Persisted and auto-provisioned from .env
+
+[ROAD CORRIDOR TEST LOCATION]
+- Road Name: NH 766 Wayanad Ghat Road (Lakkidi - Vythiri)
+- Road Segment ID (UUID): 396afe0f-cd4f-41e1-a2d4-95367c932dac
+- Road Classification: primary
+- Speed Limit: 50 km/h
+- Average Daily Traffic (ADT): 14,000 vehicles/day
+- Sensitive Environmental Zone: True (Steep mountain pass / Ghat corridor)
+- Segment Polyline Geometry:
+  MULTILINESTRING((76.0200 11.5100, 76.0280 11.5200, 76.0350 11.5300, 76.0450 11.5500))
+
+[REPORTED DEFECT & FIELD DATA]
+- Reported Location: Latitude 11.5200° N, Longitude 76.0280° E (Hairpin Bend 3)
+- Media File: /tmp/pothole_test.jpg -> uploaded to /uploads/TKT-2026-00001_51afbc7c.jpg
+- Media Type: image
+- Ticket ID Generated: TKT-2026-00001
+- Submission Endpoint: POST http://localhost:8000/api/v1/complaints/submit
+
+[ML COMPUTER VISION INFERENCE RESULTS]
+- Detected Defect Taxonomy: pothole
+- Defect Severity Surface Area: 0.16 m²
+- Defect Severity Estimated Depth: 2.5 cm
+- Model Uncertainty Score: 0.234
+- MCDA Priority Score: 55.8 / 100
+- Initial Status Transition: SUBMITTED -> UNDER_REVIEW
+
+[ADMIN WORK ORDER DISPATCH]
+- Work Order ID Generated: WO-2026-00001
+- Assigned Maintenance Depot: Wayanad Regional Maintenance Depot
+- Dispatch Notes: "Deploy quick-setting polymer modified bituminous cold mix on hairpin bend 3"
+- Updated Complaint Status: SCHEDULED
+- Dispatch Endpoint: POST http://localhost:8000/api/v1/work-orders/dispatch
+
+[FIELD REPAIR COMPLETION & PROOF]
+- Field Completion Proof Media: /uploads/proof_repair_completed.jpg
+- Field Technician GPS Verification Coordinates: 11.5201° N, 76.0281° E
+- Proximity Verification Distance: ~14.8 meters from original reported coordinate
+- Haversine Proximity Gate (<= 30m): PASS (Location Verified)
+- Technician Resolution Notes: "Pothole filled with IRC:SP:63 polymer modified bituminous mastic and compacted. Drainage clear."
+- Final Complaint Status: RESOLVED (resolved_at: 2026-11-19T06:00:16Z)
+- Resolution Endpoint: POST http://localhost:8000/api/v1/work-orders/resolve
+
+--------------------------------------------------------------------------------
+2. MAP VECTOR COLOR VARIATION LIFECYCLE
+--------------------------------------------------------------------------------
+The GIS Map vector layer dynamically shifts colors across the operational lifecycle:
+
+Phase 1: Active Distress (Reported / Under Review)
+- Trigger: Citizen submits report TKT-2026-00001
+- Status: SUBMITTED / UNDER_REVIEW
+- Vector Color: RED (#ef4444, line weight: 7px)
+- API Telemetry: {"status_colour": "red"}
+
+Phase 2: Scheduled Maintenance (Work Order Dispatched)
+- Trigger: Admin dispatches WO-2026-00001 to Wayanad Regional Maintenance Depot
+- Status: SCHEDULED / IN_PROGRESS
+- Vector Color: YELLOW (#f59e0b, line weight: 5px)
+- API Telemetry: {"status_colour": "yellow"}
+
+Phase 3: Verified Restored (Post-Repair Proof Confirmed)
+- Trigger: Admin verifies completion proof photo and technician GPS within 30m
+- Status: RESOLVED (retained green for 90 days)
+- Vector Color: GREEN (#10b981, line weight: 5px)
+- API Telemetry: {"status_colour": "green"}
+
+--------------------------------------------------------------------------------
+3. PROBLEMS IDENTIFIED DURING TESTING & SOLUTIONS PROVIDED
+--------------------------------------------------------------------------------
+
+PROBLEM 1: FastAPI Server Startup Crash (Unable to connect to backend server http://localhost:8000)
+- Symptom: Uvicorn container crashed on startup; frontend displayed "Unable to connect to backend server (http://localhost:8000)".
+- Root Cause: In `backend/app/api/complaints.py`, `current_user: Optional[User] = None` lacked FastAPI's `Depends()` dependency wrapper. FastAPI attempted to inspect the SQLAlchemy ORM `User` class as a Pydantic request body, throwing `fastapi.exceptions.FastAPIError: Invalid args for response field!`.
+- Solution:
+  1. Defined `oauth2_scheme_optional = OAuth2PasswordBearer(..., auto_error=False)` and created `get_optional_user()` dependency in `backend/app/services/auth_service.py`.
+  2. Updated parameter to `current_user: Optional[User] = Depends(get_optional_user)` in `backend/app/api/complaints.py`.
+
+PROBLEM 2: Passlib & Modern Bcrypt 4.1+ Version Incompatibility
+- Symptom: `ValueError: password cannot be longer than 72 bytes` during backend lifespan initialization; admin user was not seeded into PostgreSQL.
+- Root Cause: `passlib 1.7.4` runs an internal version detection probe passing a 73-byte dummy test password to `_bcrypt.hashpw`. In `bcrypt >= 4.1.0`, `bcrypt.__about__.__version__` was deprecated and bcrypt raises a strict `ValueError` on passwords >72 bytes. This prevented the startup lifespan event from creating the admin account.
+- Solution:
+  1. Replaced `passlib.context.CryptContext` with direct native `bcrypt` calls (`bcrypt.hashpw` and `bcrypt.checkpw`) in `backend/app/services/auth_service.py`.
+  2. Added `bcrypt==4.0.1` explicitly to `backend/requirements.txt`.
+  3. Verified automated idempotent admin creation directly from `.env` on container start.
+
+PROBLEM 3: Celery Worker Crash (Kombu Transport Version Mismatch)
+- Symptom: `road_damage_worker` container was in a restart loop (`Restarting (1)`).
+- Root Cause: `kombu.exceptions.VersionMismatch: Redis transport requires redis-py versions 6.1.0 or later. You have 5.0.4`.
+- Solution:
+  1. Upgraded `redis` requirement from `redis==5.0.4` to `redis>=6.1.0` in `backend/requirements.txt`.
+  2. Rebuilt the worker container.
+
+PROBLEM 4: OpenCV Missing Library in ML Pipeline Container
+- Symptom: `road_damage_ml` container failed to start with `ImportError: libGL.so.1: cannot open shared object file: No such file or directory`.
+- Root Cause: Debian slim Python image lacks native OpenGL libraries required by `opencv-python`.
+- Solution:
+  1. Added `libgl1` to `apt-get install -y --no-install-recommends` in `ml_pipeline/Dockerfile`.
+  2. Rebuilt `ml_pipeline` container.
+
+PROBLEM 5: Empty Road Network Database Preventing Snapping & Map Vectors
+- Symptom: When submitting complaints on a fresh database, complaints were assigned to "Unassigned Network Location" with 0 polylines rendered on the vector map because `road_segments` had 0 rows.
+- Root Cause: Road network population originally depended exclusively on querying the Overpass OSM API for 180,000+ statewide ways, which is slow and requires external internet during setup.
+- Solution:
+  1. Created `backend/scripts/seed_sample_roads.py` defining core regional arterial corridors (NH 766 Wayanad Ghat Road, NH 66 Kozhikode Bypass, MG Road Ernakulam, NH 66 Kazhakoottam Bypass).
+  2. Embedded automatic startup corridor seeding into `lifespan` in `backend/app/main.py` so fresh container deployments immediately have vector snapping and colorful road polylines.
+
+PROBLEM 6: Header Congestion & Text Clipping on Admin Dashboard
+- Symptom: The heading "Road Maintenance Command Center" wrapped into two lines, with the top half sliced off by the browser toolbar; the layout looked cramped and cluttered on laptop resolutions.
+- Root Cause:
+  1. A duplicate middle status legend pill was competing for horizontal space on medium viewports.
+  2. The header container had a fixed height `h-16` (64px) which overflowed when text wrapped into 4 lines.
+- Solution:
+  1. Expanded header container to flexible `min-h-[4.25rem] py-2.5` to provide comfortable top and bottom padding.
+  2. Added `whitespace-nowrap` and `shrink-0` to the brand title and division subtitle so text remains on single lines without wrapping.
+  3. Removed redundant duplicate status legend from top bar (already prominently visible in KPI cards and map legend right below).
+
+PROBLEM 7: Low Contrast on Cards Against Scenic Photographic Backdrop
+- Symptom: Text and secondary metrics on the admin war room cards blurred out and became difficult to read against the bright parts of the photographic backdrop.
+- Root Cause: Cards were configured with low-opacity styling (`bg-slate-800/40`, `bg-red-950/20`, etc.) and muted text colors (`text-slate-500`, `text-red-500/80`).
+- Solution:
+  1. Upgraded card backgrounds to high-density slate (`bg-slate-900/90 border border-slate-700/80 backdrop-blur-md shadow-2xl`).
+  2. Brightened all metrics and sublabels to high-contrast colors (`text-slate-200`, `text-red-200`, `text-amber-200`, `text-emerald-200`).
+  3. Applied an administrative dark backdrop overlay (`from-slate-950/85 via-slate-900/80 to-slate-950/90`) to maintain map and telemetry legibility while keeping the scenic background visible.
+
+PROBLEM 8: Password Visibility Toggle Missing on Authentication Forms
+- Symptom: Users could not inspect typed passwords on login and registration pages.
+- Solution:
+  1. Added stateful `showPassword` toggle button with `Eye` and `EyeOff` icons from `lucide-react`.
+  2. Applied to Admin Authority Login, Citizen Sign In, and Citizen Registration forms.
+
+--------------------------------------------------------------------------------
+4. VERIFICATION URLS
+--------------------------------------------------------------------------------
+- Citizen Tracking (Resolved Ticket TKT-2026-00001):
+  http://localhost:3000/citizen/track?ticket=TKT-2026-00001
+- Citizen Report Filing (with Geotag Camera Capture):
+  http://localhost:3000/citizen/report
+- Authority Admin Login:
+  http://localhost:3000/auth/login?role=admin (althaf.ameer786@gmail.com / @Althaf786)
+- Admin Geospatial War Room:
+  http://localhost:3000/admin/dashboard
+- Admin Segment Inspector:
+  http://localhost:3000/admin/inspector
+- Admin Work Orders Console:
+  http://localhost:3000/admin/work-orders
+- Backend OpenAPI Swagger Documentation:
+  http://localhost:8000/docs
+================================================================================
