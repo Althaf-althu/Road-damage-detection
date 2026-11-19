@@ -113,8 +113,8 @@ export default function AdminLayout({
       <div className="relative z-10 flex min-h-screen flex-col">
         {/* Top Operations Header — Optimized high-contrast administrative command bar */}
       <header className="border-b border-slate-700/80 bg-slate-950/95 backdrop-blur-xl sticky top-0 z-50 shadow-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[4.25rem] py-2.5 flex items-center justify-between gap-4 sm:gap-6">
+          <div className="flex items-center gap-3.5 shrink-0">
             <button
               type="button"
               onClick={() => {
@@ -124,45 +124,27 @@ export default function AdminLayout({
                   router.push("/");
                 }
               }}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-200 hover:text-white hover:bg-slate-800 border border-slate-700 bg-slate-900/90 transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-200 hover:text-white hover:bg-slate-800 border border-slate-700 bg-slate-900/90 transition-all shadow-sm shrink-0"
               title="Go to previous page"
             >
               ← Back
             </button>
 
-            <Link href="/admin/dashboard" className="flex items-center gap-2.5">
-              <span className="text-2xl drop-shadow">🏛️</span>
-              <div>
-                <p className="font-extrabold text-sm sm:text-base text-white tracking-tight leading-tight drop-shadow-sm">
+            <Link href="/admin/dashboard" className="flex items-center gap-3 shrink-0">
+              <span className="text-2xl drop-shadow shrink-0">🏛️</span>
+              <div className="flex flex-col justify-center">
+                <span className="font-extrabold text-sm sm:text-base text-white tracking-tight leading-snug drop-shadow-sm whitespace-nowrap">
                   Road Maintenance Command Center
-                </p>
-                <p className="text-[10px] text-sky-400 font-bold uppercase tracking-wider">
+                </span>
+                <span className="text-[10px] sm:text-[11px] text-sky-400 font-bold uppercase tracking-wider whitespace-nowrap leading-tight">
                   Road Infrastructure Operations Division
-                </p>
+                </span>
               </div>
             </Link>
-
-            {/* Status Legend Pill */}
-            <div className="hidden xl:flex items-center gap-3 ml-4 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-[11px] font-semibold text-slate-200 shadow-sm">
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-red-500 shadow-sm shadow-red-500/50"></span>
-                <span>Active Distress</span>
-              </span>
-              <span className="text-slate-600">•</span>
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-amber-400 shadow-sm shadow-amber-400/50"></span>
-                <span>Maintenance Active</span>
-              </span>
-              <span className="text-slate-600">•</span>
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400/50"></span>
-                <span>Verified Restored</span>
-              </span>
-            </div>
           </div>
 
           {/* Navigation & User Profile */}
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <nav className="flex items-center gap-1 sm:gap-1.5 bg-slate-900/90 border border-slate-800 p-1 rounded-xl">
               {navLinks.map((item) => {
                 const isActive = pathname === item.href;
@@ -170,7 +152,7 @@ export default function AdminLayout({
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
                       isActive
                         ? "bg-sky-500/20 text-sky-300 border border-sky-400/50 shadow-sm"
                         : "text-slate-300 hover:text-white hover:bg-slate-800/80"
@@ -185,7 +167,7 @@ export default function AdminLayout({
 
             <div className="h-6 w-[1px] bg-slate-800 hidden sm:block"></div>
 
-            <div className="flex items-center gap-2 sm:gap-3 bg-slate-900/90 border border-slate-800 py-1 px-2.5 rounded-xl">
+            <div className="flex items-center gap-2 sm:gap-3 bg-slate-900/90 border border-slate-800 py-1 px-2.5 rounded-xl shrink-0">
               <div className="hidden sm:block text-right">
                 <p className="text-xs font-bold text-white leading-tight">{userName}</p>
                 <span className="inline-block px-1.5 py-0.2 rounded text-[9px] font-mono font-bold uppercase bg-sky-500/20 text-sky-300 border border-sky-500/30">
